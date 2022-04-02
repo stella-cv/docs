@@ -12,10 +12,11 @@
 |
 
 This is the `stella_vslam <https://github.com/stella-cv/stella_vslam>`_ documentation.
+
 NOTE: This is a community fork of xdspacelab/openvslam.
 It was created to continue active development of OpenVSLAM on Jan 31, 2021.
 The original repository is no longer available.
-Please read README.md in `stella_vslam <https://github.com/stella-cv/stella_vslam>`.
+Please read README.md in `stella_vslam <https://github.com/stella-cv/stella_vslam>`_.
 
 Contents
 --------
