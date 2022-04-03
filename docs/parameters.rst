@@ -275,3 +275,23 @@ BowDatabase
       - 
     * - loop_min_distance_on_graph
       - 
+
+.. _section-parameters-marker-model:
+
+MarkerModel
+===========
+
+.. list-table::
+    :header-rows: 1
+    :widths: 1, 3
+
+    * - Name
+      - Description
+    * - type
+      - Only "aruco" is a valid value
+    * - width
+      - Physical size of marker
+    * - marker_size
+      - 4, 5, 6, 7. See https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html.
+    * - max_markers
+      - 50, 100, 250, 1000. See https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html.
