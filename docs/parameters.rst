@@ -205,6 +205,12 @@ KeyframeInserter
       - Description
     * - max_interval
       - max interval to insert keyframe
+    * - min_interval
+      - 
+    * - max_distance
+      - 
+    * - enough_lms_thr
+      - 
     * - lms_ratio_thr_almost_all_lms_are_tracked
       - Threshold at which we consider that we are tracking almost all landmarks. Ratio-threshold of "the number of 3D points observed in the current frame" / "that of 3D points observed in the last keyframe"
     * - lms_ratio_thr_view_changed
