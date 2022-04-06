@@ -136,6 +136,12 @@ Mapping
       - For two frames of baseline below the threshold, no triangulation will be performed.
     * - redundant_obs_ratio_thr
       - 
+    * - observed_ratio_thr
+      - 
+    * - num_obs_thr
+      - 
+    * - num_reliable_keyfrms
+      - 
 
 .. _section-parameters-stereo-rectifier:
 
