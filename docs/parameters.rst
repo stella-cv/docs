@@ -5,6 +5,20 @@ Parameters
 ==========
 
 
+.. _section-parameters-system:
+
+System
+======
+
+.. list-table::
+    :header-rows: 1
+    :widths: 1, 3
+
+    * - Name
+      - Description
+    * - map_format
+      - msgpack or sqlite3
+
 .. _section-parameters-camera:
 
 Camera
