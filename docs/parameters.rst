@@ -289,22 +289,18 @@ LoopDetector
       - the threshold of the number of mutual matches after the Sim3 estimation
     * - min_continuity
       - the threshold of the continuity of continuously detected keyframe set
-
-.. _section-parameters-bow-database:
-
-BowDatabase
-===========
-
-.. list-table::
-    :header-rows: 1
-    :widths: 1, 3
-
-    * - Name
-      - Description
     * - reject_by_graph_distance
-      - 
+      - If true, reject by distance on essential graph
     * - loop_min_distance_on_graph
-      - 
+      - Minimum distance to allow for loop candidates
+    * - top_n_covisibilities_to_search
+      - Top n covisibilities to search (0 means disabled)
+    * - num_matches_thr
+      - Minimum number of matches to allow for loop candidates
+    * - num_matches_thr_brute_force
+      - Minimum number of matches to allow for loop candidates after brute force matching. (0 means disabled)
+    * - num_optimized_inliers_thr
+      - Minimum number of matches to allow for loop candidates after optimization by transform_optimizer
 
 .. _section-parameters-marker-model:
 
