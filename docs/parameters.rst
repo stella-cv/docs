@@ -91,10 +91,8 @@ Preprocessing
 
     * - Name
       - Description
-    * - max_num_keypoints
-      - Maximum number of feature points per frame to be used for SLAM.
-    * - ini_max_num_keypoints
-      - Maximum number of feature points per frame to be used for Initialization. It is only used for monocular camera models.
+    * - min_size
+      - Size of node occupied by one feature point. The larger this value, the fewer feature points are extracted.
     * - depthmap_factor
       - The ratio used to convert depth image pixel values to distance.
 
