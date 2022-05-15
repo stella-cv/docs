@@ -263,7 +263,7 @@ Download, build and install g2o.
         -DG2O_USE_CHOLMOD=OFF \
         -DG2O_USE_CSPARSE=ON \
         -DG2O_USE_OPENGL=OFF \
-        -DG2O_USE_OPENMP=ON \
+        -DG2O_USE_OPENMP=OFF \
         ..
     make -j4
     make install
