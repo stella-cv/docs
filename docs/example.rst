@@ -22,17 +22,17 @@ The following options are allowed:
 
     $ ./run_video_slam -h
     Allowed options:
-    -h, --help             produce help message
-    -v, --vocab arg        vocabulary file path
-    -m, --video arg        video file path
-    -c, --config arg       config file path
-    --mask arg             mask image path
-    --frame-skip arg (=1)  interval of frame skip
-    --no-sleep             not wait for next frame in real time
-    --auto-term            automatically terminate the viewer
-    --debug                debug mode
-    --eval-log             store trajectory and tracking times for evaluation
-    -p, --map-db arg       store a map database at this path after SLAM
+    -h, --help               produce help message
+    -v, --vocab arg          vocabulary file path
+    -m, --video arg          video file path
+    -c, --config arg         config file path
+    --mask arg               mask image path
+    --frame-skip arg (=1)    interval of frame skip
+    --no-sleep               not wait for next frame in real time
+    --auto-term              automatically terminate the viewer
+    --log-level arg (=info)  log level
+    --eval-log               store trajectory and tracking times for evaluation
+    -p, --map-db arg         store a map database at this path after SLAM
 
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
@@ -48,17 +48,17 @@ The following options are allowed:
 
     $ ./run_video_localization -h
     Allowed options:
-    -h, --help             produce help message
-    -v, --vocab arg        vocabulary file path
-    -m, --video arg        video file path
-    -c, --config arg       config file path
-    -p, --map-db arg       path to a prebuilt map database
-    --mapping              perform mapping as well as localization
-    --mask arg             mask image path
-    --frame-skip arg (=1)  interval of frame skip
-    --no-sleep             not wait for next frame in real time
-    --auto-term            automatically terminate the viewer
-    --debug                debug mode
+    -h, --help               produce help message
+    -v, --vocab arg          vocabulary file path
+    -m, --video arg          video file path
+    -c, --config arg         config file path
+    -p, --map-db arg         path to a prebuilt map database
+    --mapping                perform mapping as well as localization
+    --mask arg               mask image path
+    --frame-skip arg (=1)    interval of frame skip
+    --no-sleep               not wait for next frame in real time
+    --auto-term              automatically terminate the viewer
+    --log-level arg (=info)  log level
 
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
@@ -81,17 +81,17 @@ The following options are allowed:
 
     $ ./run_image_slam -h
     Allowed options:
-    -h, --help             produce help message
-    -v, --vocab arg        vocabulary file path
-    -i, --img-dir arg      directory path which contains images
-    -c, --config arg       config file path
-    --mask arg             mask image path
-    --frame-skip arg (=1)  interval of frame skip
-    --no-sleep             not wait for next frame in real time
-    --auto-term            automatically terminate the viewer
-    --debug                debug mode
-    --eval-log             store trajectory and tracking times for evaluation
-    -p, --map-db arg       store a map database at this path after SLAM
+    -h, --help               produce help message
+    -v, --vocab arg          vocabulary file path
+    -i, --img-dir arg        directory path which contains images
+    -c, --config arg         config file path
+    --mask arg               mask image path
+    --frame-skip arg (=1)    interval of frame skip
+    --no-sleep               not wait for next frame in real time
+    --auto-term              automatically terminate the viewer
+    --log-level arg (=info)  log level
+    --eval-log               store trajectory and tracking times for evaluation
+    -p, --map-db arg         store a map database at this path after SLAM
 
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
@@ -107,17 +107,17 @@ The following options are allowed:
 
     $ ./run_image_localization -h
     Allowed options:
-    -h, --help             produce help message
-    -v, --vocab arg        vocabulary file path
-    -i, --img-dir arg      directory path which contains images
-    -c, --config arg       config file path
-    -p, --map-db arg       path to a prebuilt map database
-    --mapping              perform mapping as well as localization
-    --mask arg             mask image path
-    --frame-skip arg (=1)  interval of frame skip
-    --no-sleep             not wait for next frame in real time
-    --auto-term            automatically terminate the viewer
-    --debug                debug mode
+    -h, --help               produce help message
+    -v, --vocab arg          vocabulary file path
+    -i, --img-dir arg        directory path which contains images
+    -c, --config arg         config file path
+    -p, --map-db arg         path to a prebuilt map database
+    --mapping                perform mapping as well as localization
+    --mask arg               mask image path
+    --frame-skip arg (=1)    interval of frame skip
+    --no-sleep               not wait for next frame in real time
+    --auto-term              automatically terminate the viewer
+    --log-level arg (=info)  log level
 
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
@@ -178,16 +178,16 @@ The following options are allowed:
 
     $ ./run_kitti_slam -h
     Allowed options:
-    -h, --help             produce help message
-    -v, --vocab arg        vocabulary file path
-    -d, --data-dir arg     directory path which contains dataset
-    -c, --config arg       config file path
-    --frame-skip arg (=1)  interval of frame skip
-    --no-sleep             not wait for next frame in real time
-    --auto-term            automatically terminate the viewer
-    --debug                debug mode
-    --eval-log             store trajectory and tracking times for evaluation
-    -p, --map-db arg       store a map database at this path after SLAM
+    -h, --help               produce help message
+    -v, --vocab arg          vocabulary file path
+    -d, --data-dir arg       directory path which contains dataset
+    -c, --config arg         config file path
+    --frame-skip arg (=1)    interval of frame skip
+    --no-sleep               not wait for next frame in real time
+    --auto-term              automatically terminate the viewer
+    --log-level arg (=info)  log level
+    --eval-log               store trajectory and tracking times for evaluation
+    -p, --map-db arg         store a map database at this path after SLAM
 
 .. _subsection-example-euroc:
 
@@ -238,16 +238,16 @@ The following options are allowed:
 
     $ ./run_euroc_slam -h
     Allowed options:
-    -h, --help             produce help message
-    -v, --vocab arg        vocabulary file path
-    -d, --data-dir arg     directory path which contains dataset
-    -c, --config arg       config file path
-    --frame-skip arg (=1)  interval of frame skip
-    --no-sleep             not wait for next frame in real time
-    --auto-term            automatically terminate the viewer
-    --debug                debug mode
-    --eval-log             store trajectory and tracking times for evaluation
-    -p, --map-db arg       store a map database at this path after SLAM
+    -h, --help               produce help message
+    -v, --vocab arg          vocabulary file path
+    -d, --data-dir arg       directory path which contains dataset
+    -c, --config arg         config file path
+    --frame-skip arg (=1)    interval of frame skip
+    --no-sleep               not wait for next frame in real time
+    --auto-term              automatically terminate the viewer
+    --log-level arg (=info)  log level
+    --eval-log               store trajectory and tracking times for evaluation
+    -p, --map-db arg         store a map database at this path after SLAM
 
 .. _subsection-example-tum-rgbd:
 
@@ -310,16 +310,16 @@ The following options are allowed:
 
     $ ./run_tum_rgbd_slam -h
     Allowed options:
-    -h, --help             produce help message
-    -v, --vocab arg        vocabulary file path
-    -d, --data-dir arg     directory path which contains dataset
-    -c, --config arg       config file path
-    --frame-skip arg (=1)  interval of frame skip
-    --no-sleep             not wait for next frame in real time
-    --auto-term            automatically terminate the viewer
-    --debug                debug mode
-    --eval-log             store trajectory and tracking times for evaluation
-    -p, --map-db arg       store a map database at this path after SLAM
+    -h, --help               produce help message
+    -v, --vocab arg          vocabulary file path
+    -d, --data-dir arg       directory path which contains dataset
+    -c, --config arg         config file path
+    --frame-skip arg (=1)    interval of frame skip
+    --no-sleep               not wait for next frame in real time
+    --auto-term              automatically terminate the viewer
+    --log-level arg (=info)  log level
+    --eval-log               store trajectory and tracking times for evaluation
+    -p, --map-db arg         store a map database at this path after SLAM
 
 Localization
 ^^^^^^^^^^^^
@@ -355,16 +355,16 @@ The following options are allowed:
 
     $ ./run_tum_rgbd_localization -h
     Allowed options:
-    -h, --help             produce help message
-    -v, --vocab arg        vocabulary file path
-    -d, --data-dir arg     directory path which contains dataset
-    -c, --config arg       config file path
-    --frame-skip arg (=1)  interval of frame skip
-    --no-sleep             not wait for next frame in real time
-    --auto-term            automatically terminate the viewer
-    --debug                debug mode
-    --mapping              perform mapping as well as localization
-    -p, --map-db arg       store a map database at this path after SLAM
+    -h, --help               produce help message
+    -v, --vocab arg          vocabulary file path
+    -d, --data-dir arg       directory path which contains dataset
+    -c, --config arg         config file path
+    --frame-skip arg (=1)    interval of frame skip
+    --no-sleep               not wait for next frame in real time
+    --auto-term              automatically terminate the viewer
+    --log-level arg (=info)  log level
+    --mapping                perform mapping as well as localization
+    -p, --map-db arg         store a map database at this path after SLAM
 
 .. _section-example-uvc-camera:
 
@@ -382,14 +382,14 @@ The following options are allowed:
 
     $ ./run_camera_slam  -h
     Allowed options:
-    -h, --help            produce help message
-    -v, --vocab arg       vocabulary file path
-    -n, --number arg      camera number
-    -c, --config arg      config file path
-    --mask arg            mask image path
-    -s, --scale arg (=1)  scaling ratio of images
-    -p, --map-db arg      store a map database at this path after SLAM
-    --debug               debug mode
+    -h, --help              produce help message
+    -v, --vocab arg         vocabulary file path
+    -n, --number arg        camera number
+    -c, --config arg        config file path
+    --mask arg              mask image path
+    -s, --scale arg (=1)    scaling ratio of images
+    -p, --map-db arg        store a map database at this path after SLAM
+    --log-level arg (=info)  log level
 
 | Please specify the camera number you want to use by ``-n`` option.
 | The camera must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
@@ -407,15 +407,15 @@ The following options are allowed:
 
     $ ./run_camera_localization -h
     Allowed options:
-    -h, --help            produce help message
-    -v, --vocab arg       vocabulary file path
-    -n, --number arg      camera number
-    -c, --config arg      config file path
-    --mask arg            mask image path
-    -s, --scale arg (=1)  scaling ratio of images
-    -p, --map-db arg      path to a prebuilt map database
-    --mapping             perform mapping as well as localization
-    --debug               debug mode
+    -h, --help              produce help message
+    -v, --vocab arg         vocabulary file path
+    -n, --number arg        camera number
+    -c, --config arg        config file path
+    --mask arg              mask image path
+    -s, --scale arg (=1)    scaling ratio of images
+    -p, --map-db arg        path to a prebuilt map database
+    --mapping               perform mapping as well as localization
+    --log-level arg (=info)  log level
 
 | Please specify the camera number you want to use by ``-n`` option.
 | The camera must be calibrated. Create a config file (``.yaml``) according to the camera parameters.

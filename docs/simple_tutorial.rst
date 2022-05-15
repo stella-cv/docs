@@ -245,17 +245,17 @@ You can use ``./run_video_slam`` to run SLAM with the video file.
     ...
     $ ./run_video_slam -h
     Allowed options:
-      -h, --help             produce help message
-      -v, --vocab arg        vocabulary file path
-      -m, --video arg        video file path
-      -c, --config arg       config file path
-      --mask arg             mask image path
-      --frame-skip arg (=1)  interval of frame skip
-      --no-sleep             not wait for next frame in real time
-      --auto-term            automatically terminate the viewer
-      --debug                debug mode
-      --eval-log             store trajectory and tracking times for evaluation
-      -p, --map-db arg       store a map database at this path after SLAM
+      -h, --help               produce help message
+      -v, --vocab arg          vocabulary file path
+      -m, --video arg          video file path
+      -c, --config arg         config file path
+      --mask arg               mask image path
+      --frame-skip arg (=1)    interval of frame skip
+      --no-sleep               not wait for next frame in real time
+      --auto-term              automatically terminate the viewer
+      --log-level arg (=info)  log level
+      --eval-log               store trajectory and tracking times for evaluation
+      -p, --map-db arg         store a map database at this path after SLAM
 
 
 Execute the following command to run SLAM.
@@ -382,17 +382,17 @@ You can use ``./run_video_localization`` to run localization.
 
     $ ./run_video_localization -h
     Allowed options:
-      -h, --help             produce help message
-      -v, --vocab arg        vocabulary file path
-      -m, --video arg        video file path
-      -c, --config arg       config file path
-      -p, --map-db arg       path to a prebuilt map database
-      --mapping              perform mapping as well as localization
-      --mask arg             mask image path
-      --frame-skip arg (=1)  interval of frame skip
-      --no-sleep             not wait for next frame in real time
-      --auto-term            automatically terminate the viewer
-      --debug                debug mode
+      -h, --help               produce help message
+      -v, --vocab arg          vocabulary file path
+      -m, --video arg          video file path
+      -c, --config arg         config file path
+      -p, --map-db arg         path to a prebuilt map database
+      --mapping                perform mapping as well as localization
+      --mask arg               mask image path
+      --frame-skip arg (=1)    interval of frame skip
+      --no-sleep               not wait for next frame in real time
+      --auto-term              automatically terminate the viewer
+      --log-level arg (=info)  log level
 
 
 Execute the following command to start localization.

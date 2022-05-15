@@ -373,16 +373,16 @@ After building, check to see if it was successfully built by executing ``./run_k
 
     $ ./run_kitti_slam -h
     Allowed options:
-    -h, --help             produce help message
-    -v, --vocab arg        vocabulary file path
-    -d, --data-dir arg     directory path which contains dataset
-    -c, --config arg       config file path
-    --frame-skip arg (=1)  interval of frame skip
-    --no-sleep             not wait for next frame in real time
-    --auto-term            automatically terminate the viewer
-    --debug                debug mode
-    --eval-log             store trajectory and tracking times for evaluation
-    -p, --map-db arg       store a map database at this path after SLAM
+    -h, --help               produce help message
+    -v, --vocab arg          vocabulary file path
+    -d, --data-dir arg       directory path which contains dataset
+    -c, --config arg         config file path
+    --frame-skip arg (=1)    interval of frame skip
+    --no-sleep               not wait for next frame in real time
+    --auto-term              automatically terminate the viewer
+    --log-level arg (=info)  log level
+    --eval-log               store trajectory and tracking times for evaluation
+    -p, --map-db arg         store a map database at this path after SLAM
 
 
 .. _section-server-setup:
