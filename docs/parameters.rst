@@ -136,14 +136,8 @@ Mapping
       - 
     * - observed_ratio_thr
       - 
-    * - num_obs_thr
-      - 
     * - num_reliable_keyfrms
       - 
-    * - desired_valid_obs
-      - Desired number of valid observations per keyframe (If 0, redundant connection removal is disabled.)
-    * - num_obs_keyfrms_thr
-      - Desired number of observations per landmark
 
 .. _section-parameters-stereo-rectifier:
 
