@@ -247,6 +247,8 @@ PangolinViewer
       - 
     * - camera_line_width
       - 
+    * - menu_width
+      - 
     * - viewpoint_x, viewpoint_y, viewpoint_z, viewpoint_f
       - 
 
