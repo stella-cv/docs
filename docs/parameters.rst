@@ -140,6 +140,10 @@ Mapping
       - 
     * - num_reliable_keyfrms
       - 
+    * - enable_interruption_of_landmark_generation
+      - If true, enable interruption of landmark generation
+    * - enable_interruption_before_local_BA
+      - If true, enable interruption before local BA
 
 .. _section-parameters-stereo-rectifier:
 
