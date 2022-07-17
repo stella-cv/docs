@@ -18,6 +18,8 @@ System
       - Description
     * - map_format
       - msgpack or sqlite3
+    * - min_num_shared_lms
+      - minimum number of shared landmarks for covisibility graph connection. Keyframes that exceed the threshold are considered to share a sufficient number of landmarks and are used for local BA, loop detection and graph optimization.
 
 .. _section-parameters-camera:
 
