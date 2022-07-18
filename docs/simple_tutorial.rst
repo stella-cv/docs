@@ -20,7 +20,7 @@ The later parts of this chapter explains what each of the commands do in more de
     $ pwd
     /path/to/stella_vslam/build/
     $ ls
-    run_video_slam   run_video_localization   lib/   ...
+    run_video_slam   lib/   ...
 
     # download an ORB vocabulary from GitHub
     curl -sL "https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow" -o orb_vocab.fbow
@@ -45,7 +45,7 @@ The later parts of this chapter explains what each of the commands do in more de
     # you can find map.msg in the current directory
 
     # run localization
-    ./run_video_localization -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db map.msg
+    ./run_video_slam --load-map --disable-mapping -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db map.msg
 
 
 Sample Datasets
@@ -375,33 +375,14 @@ Localization
 ^^^^^^^^^^^^
 
 In this section, we will localize the frames in ``aist_living_lab_2`` dataset using the created map file ``aist_living_lab_1_map.msg``.
-You can use ``./run_video_localization`` to run localization.
-
-
-.. code-block:: bash
-
-    $ ./run_video_localization -h
-    Allowed options:
-      -h, --help               produce help message
-      -v, --vocab arg          vocabulary file path
-      -m, --video arg          video file path
-      -c, --config arg         config file path
-      -p, --map-db arg         path to a prebuilt map database
-      --mapping                perform mapping as well as localization
-      --mask arg               mask image path
-      --frame-skip arg (=1)    interval of frame skip
-      --no-sleep               not wait for next frame in real time
-      --auto-term              automatically terminate the viewer
-      --log-level arg (=info)  log level
-
-
+You can use ``./run_video_slam`` with ``--load-map --disable-mapping`` to run localization.
 Execute the following command to start localization.
 The paths should be changed accordingly.
 
 
 .. code-block:: bash
 
-    $ ./run_video_localization \
+    $ ./run_video_slam --load-map --disable-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -c /path/to/stella_vslam/example/aist/equirectangular.yaml \
         -m /path/to/aist_living_lab_2/video.mp4 \

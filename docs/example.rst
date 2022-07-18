@@ -11,54 +11,8 @@ We provided example code snippets for running stella_vslam with variety of datas
 SLAM with Video Files
 =====================
 
-Tracking and Mapping
-^^^^^^^^^^^^^^^^^^^^
-
 We provide an example snippet for using video files (e.g. ``.mp4``) for visual SLAM.
 The source code is placed at ``./example/run_video_slam.cc``.
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_video_slam -h
-    Allowed options:
-    -h, --help               produce help message
-    -v, --vocab arg          vocabulary file path
-    -m, --video arg          video file path
-    -c, --config arg         config file path
-    --mask arg               mask image path
-    --frame-skip arg (=1)    interval of frame skip
-    --no-sleep               not wait for next frame in real time
-    --auto-term              automatically terminate the viewer
-    --log-level arg (=info)  log level
-    --eval-log               store trajectory and tracking times for evaluation
-    -p, --map-db arg         store a map database at this path after SLAM
-
-| The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
-| We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
-
-Localization
-^^^^^^^^^^^^
-
-We provide an example snippet for using video files (e.g. ``.mp4``) for localization based on a prebuilt map.
-The source code is placed at ``./example/run_video_localization.cc``.
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_video_localization -h
-    Allowed options:
-    -h, --help               produce help message
-    -v, --vocab arg          vocabulary file path
-    -m, --video arg          video file path
-    -c, --config arg         config file path
-    -p, --map-db arg         path to a prebuilt map database
-    --mapping                perform mapping as well as localization
-    --mask arg               mask image path
-    --frame-skip arg (=1)    interval of frame skip
-    --no-sleep               not wait for next frame in real time
-    --auto-term              automatically terminate the viewer
-    --log-level arg (=info)  log level
 
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
@@ -70,54 +24,8 @@ You can create a map database file by running one of the ``run_****_slam`` execu
 SLAM with Image Sequences
 =========================
 
-Tracking and Mapping
-^^^^^^^^^^^^^^^^^^^^
-
 We provided an example snippet for using image sequences for visual SLAM.
 The source code is placed at ``./example/run_image_slam.cc``.
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_image_slam -h
-    Allowed options:
-    -h, --help               produce help message
-    -v, --vocab arg          vocabulary file path
-    -i, --img-dir arg        directory path which contains images
-    -c, --config arg         config file path
-    --mask arg               mask image path
-    --frame-skip arg (=1)    interval of frame skip
-    --no-sleep               not wait for next frame in real time
-    --auto-term              automatically terminate the viewer
-    --log-level arg (=info)  log level
-    --eval-log               store trajectory and tracking times for evaluation
-    -p, --map-db arg         store a map database at this path after SLAM
-
-| The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
-| We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
-
-Localization
-^^^^^^^^^^^^
-
-We provided an example snippet for using image sequences for localization based on a prebuilt map.
-The source code is placed at ``./example/run_image_localization.cc``.
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_image_localization -h
-    Allowed options:
-    -h, --help               produce help message
-    -v, --vocab arg          vocabulary file path
-    -i, --img-dir arg        directory path which contains images
-    -c, --config arg         config file path
-    -p, --map-db arg         path to a prebuilt map database
-    --mapping                perform mapping as well as localization
-    --mask arg               mask image path
-    --frame-skip arg (=1)    interval of frame skip
-    --no-sleep               not wait for next frame in real time
-    --auto-term              automatically terminate the viewer
-    --log-level arg (=info)  log level
 
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
@@ -157,10 +65,6 @@ If you built examples with Pangolin Viewer support, a map viewer and frame viewe
 .. code-block:: bash
 
     # at the build directory of stella_vslam
-    $ ls
-    ...
-    run_kitti_slam
-    ...
     # monocular SLAM with sequence 00
     $ ./run_kitti_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
@@ -171,23 +75,6 @@ If you built examples with Pangolin Viewer support, a map viewer and frame viewe
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/KITTI/Odometry/sequences/05/ \
         -c ../example/kitti/KITTI_stereo_04-12.yaml
-
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_kitti_slam -h
-    Allowed options:
-    -h, --help               produce help message
-    -v, --vocab arg          vocabulary file path
-    -d, --data-dir arg       directory path which contains dataset
-    -c, --config arg         config file path
-    --frame-skip arg (=1)    interval of frame skip
-    --no-sleep               not wait for next frame in real time
-    --auto-term              automatically terminate the viewer
-    --log-level arg (=info)  log level
-    --eval-log               store trajectory and tracking times for evaluation
-    -p, --map-db arg         store a map database at this path after SLAM
 
 .. _subsection-example-euroc:
 
@@ -217,10 +104,6 @@ If you have built examples with Pangolin Viewer support, a map viewer and frame 
 .. code-block:: bash
 
     # at the build directory of stella_vslam
-    $ ls
-    ...
-    run_euroc_slam
-    ...
     # monocular SLAM with any EuRoC sequence
     $ ./run_euroc_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
@@ -232,30 +115,13 @@ If you have built examples with Pangolin Viewer support, a map viewer and frame 
         -d /path/to/EuRoC/MAV/mav0/ \
         -c ../example/euroc/EuRoC_stereo.yaml
 
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_euroc_slam -h
-    Allowed options:
-    -h, --help               produce help message
-    -v, --vocab arg          vocabulary file path
-    -d, --data-dir arg       directory path which contains dataset
-    -c, --config arg         config file path
-    --frame-skip arg (=1)    interval of frame skip
-    --no-sleep               not wait for next frame in real time
-    --auto-term              automatically terminate the viewer
-    --log-level arg (=info)  log level
-    --eval-log               store trajectory and tracking times for evaluation
-    -p, --map-db arg         store a map database at this path after SLAM
-
 .. _subsection-example-tum-rgbd:
 
 TUM RGBD dataset
 ^^^^^^^^^^^^^^^^
 
 `TUM RGBD dataset <https://vision.in.tum.de/data/datasets/rgbd-dataset>`_ is a benchmarking dataset fcontaining RGB-D data and ground-truth data with the goal to establish a novel benchmark for the evaluation of visual odometry and visual SLAM systems.
-The source code is placed at ``./example/run_tum_rgbd_localization.cc``.
+The source code is placed at ``./example/run_tum_rgbd_slam.cc``.
 
 Start by downloading the various dataset from `here <https://vision.in.tum.de/data/datasets/rgbd-dataset/download>`__. 
 One of many example datasets can be found from  `here <https://vision.in.tum.de/rgbd/dataset/freiburg3/rgbd_dataset_freiburg3_calibration_rgb_depth.tgz>`__. 
@@ -282,10 +148,6 @@ Tracking and Mapping
 .. code-block:: bash
 
     # at the build directory of stella_vslam
-    $ ls
-    ...
-    run_tum_rgbd_slam
-    ...
     # monocular SLAM with rgbd_dataset_freiburg3_calibration_rgb_depth
     $ ./run_tum_rgbd_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
@@ -304,35 +166,14 @@ Tracking and Mapping
         --auto-term \
         --map-db fr3_slam_rgbd.msg
 
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_tum_rgbd_slam -h
-    Allowed options:
-    -h, --help               produce help message
-    -v, --vocab arg          vocabulary file path
-    -d, --data-dir arg       directory path which contains dataset
-    -c, --config arg         config file path
-    --frame-skip arg (=1)    interval of frame skip
-    --no-sleep               not wait for next frame in real time
-    --auto-term              automatically terminate the viewer
-    --log-level arg (=info)  log level
-    --eval-log               store trajectory and tracking times for evaluation
-    -p, --map-db arg         store a map database at this path after SLAM
-
 Localization
 ^^^^^^^^^^^^
 
 .. code-block:: bash
 
     # at the build directory of stella_vslam
-    $ ls
-    ...
-    run_tum_rgbd_localization
-    ...
     # monocular localization with rgbd_dataset_freiburg3_calibration_rgb_depth
-    $ ./run_tum_rgbd_localization \
+    $ ./run_tum_rgbd_slam --load-map --disable-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
         -c ../example/tum_rgbd/TUM_RGBD_mono_3.yaml \
@@ -341,30 +182,13 @@ Localization
         --map-db fr3_slam_mono.msg
 
     # RGBD SLAM with rgbd_dataset_freiburg3_calibration_rgb_depth
-    $ ./run_tum_rgbd_localization \
+    $ ./run_tum_rgbd_slam --load-map --disable-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
         -c ../example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
         --no-sleep \
         --auto-term \
         --map-db fr3_slam_rgbd.msg
-
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_tum_rgbd_localization -h
-    Allowed options:
-    -h, --help               produce help message
-    -v, --vocab arg          vocabulary file path
-    -d, --data-dir arg       directory path which contains dataset
-    -c, --config arg         config file path
-    --frame-skip arg (=1)    interval of frame skip
-    --no-sleep               not wait for next frame in real time
-    --auto-term              automatically terminate the viewer
-    --log-level arg (=info)  log level
-    --mapping                perform mapping as well as localization
-    -p, --map-db arg         store a map database at this path after SLAM
 
 .. _section-example-uvc-camera:
 
@@ -376,46 +200,6 @@ Tracking and Mapping
 
 We provided an example snippet for using a UVC camera, which is often called a webcam, for visual SLAM.
 The source code is placed at ``./example/run_camera_slam.cc``.
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_camera_slam  -h
-    Allowed options:
-    -h, --help              produce help message
-    -v, --vocab arg         vocabulary file path
-    -n, --number arg        camera number
-    -c, --config arg        config file path
-    --mask arg              mask image path
-    -s, --scale arg (=1)    scaling ratio of images
-    -p, --map-db arg        store a map database at this path after SLAM
-    --log-level arg (=info)  log level
-
-| Please specify the camera number you want to use by ``-n`` option.
-| The camera must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
-| You can scale input images to the performance of your machine by ``-s`` option. Please modify the config accordingly.
-| We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
-
-Localization
-^^^^^^^^^^^^
-
-We provided an example snippet for using a UVC camera for localization based on a prebuilt map.
-The source code is placed at ``./example/run_camera_localization.cc``.
-The following options are allowed:
-
-.. code-block:: bash
-
-    $ ./run_camera_localization -h
-    Allowed options:
-    -h, --help              produce help message
-    -v, --vocab arg         vocabulary file path
-    -n, --number arg        camera number
-    -c, --config arg        config file path
-    --mask arg              mask image path
-    -s, --scale arg (=1)    scaling ratio of images
-    -p, --map-db arg        path to a prebuilt map database
-    --mapping               perform mapping as well as localization
-    --log-level arg (=info)  log level
 
 | Please specify the camera number you want to use by ``-n`` option.
 | The camera must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
