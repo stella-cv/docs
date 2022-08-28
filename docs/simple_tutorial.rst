@@ -40,12 +40,12 @@ The later parts of this chapter explains what each of the commands do in more de
     unzip aist_living_lab_2.zip
 
     # run tracking and mapping
-    ./run_video_slam -v ./orb_vocab.fbow -m ./aist_living_lab_1/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db map.msg
+    ./run_video_slam -v ./orb_vocab.fbow -m ./aist_living_lab_1/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-out map.msg
     # click the [Terminate] button to close the viewer
     # you can find map.msg in the current directory
 
     # run localization
-    ./run_video_slam --load-map --disable-mapping -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db map.msg
+    ./run_video_slam --disable-mapping -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-in map.msg
 
 
 Sample Datasets
@@ -254,8 +254,6 @@ You can use ``./run_video_slam`` to run SLAM with the video file.
       --no-sleep               not wait for next frame in real time
       --auto-term              automatically terminate the viewer
       --log-level arg (=info)  log level
-      --eval-log               store trajectory and tracking times for evaluation
-      -p, --map-db arg         store a map database at this path after SLAM
 
 
 Execute the following command to run SLAM.
@@ -269,7 +267,7 @@ The paths should be changed accordingly.
         -c /path/to/stella_vslam/example/aist/equirectangular.yaml \
         -m /path/to/aist_living_lab_1/video.mp4 \
         --frame-skip 3 \
-        --map-db aist_living_lab_1_map.msg
+        --map-db-out aist_living_lab_1_map.msg
 
 
 The frame viewer and map viewer should launch as well.
@@ -375,19 +373,19 @@ Localization
 ^^^^^^^^^^^^
 
 In this section, we will localize the frames in ``aist_living_lab_2`` dataset using the created map file ``aist_living_lab_1_map.msg``.
-You can use ``./run_video_slam`` with ``--load-map --disable-mapping`` to run localization.
+You can use ``./run_video_slam`` with ``--map-db-in aist_living_lab_1_map.msg --disable-mapping`` to run localization.
 Execute the following command to start localization.
 The paths should be changed accordingly.
 
 
 .. code-block:: bash
 
-    $ ./run_video_slam --load-map --disable-mapping \
+    $ ./run_video_slam --disable-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -c /path/to/stella_vslam/example/aist/equirectangular.yaml \
         -m /path/to/aist_living_lab_2/video.mp4 \
         --frame-skip 3 \
-        --map-db aist_living_lab_1_map.msg
+        --map-db-in aist_living_lab_1_map.msg
 
 
 The frame viewer and map viewer should launch as well.

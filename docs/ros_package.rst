@@ -126,18 +126,20 @@ The source code is placed at ``stella_vslam_ros/src/run_slam.cc``.
     source ~/catkin_ws/devel/setup.bash
     rosrun stella_vslam_ros run_slam \
         -v /path/to/orb_vocab.fbow \
-        -c /path/to/config.yaml
+        -c /path/to/config.yaml \
+        --map-db-out /path/to/map.msg
 
 Localization
 ------------
 
 We provide an example snippet for localization based on a prebuilt map.
-The source code is placed at ``stella_vslam_ros/src/run_localization.cc``.
+The source code is placed at ``stella_vslam_ros/src/run_slam.cc``.
 
 .. code-block:: bash
 
     source ~/catkin_ws/devel/setup.bash
-    rosrun stella_vslam_ros run_localization \
+    rosrun stella_vslam_ros run_slam \
+        --disable-mapping \
         -v /path/to/orb_vocab.fbow \
         -c /path/to/config.yaml \
-        --map-db /path/to/map.msg
+        --map-db-in /path/to/map.msg

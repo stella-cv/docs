@@ -381,8 +381,6 @@ After building, check to see if it was successfully built by executing ``./run_k
     --no-sleep               not wait for next frame in real time
     --auto-term              automatically terminate the viewer
     --log-level arg (=info)  log level
-    --eval-log               store trajectory and tracking times for evaluation
-    -p, --map-db arg         store a map database at this path after SLAM
 
 
 .. _section-server-setup:

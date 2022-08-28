@@ -17,7 +17,7 @@ The source code is placed at ``./example/run_video_slam.cc``.
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
 
-You can create a map database file by running one of the ``run_****_slam`` executables with ``--map-db map_file_name.msg`` option.
+You can create a map database file by running one of the ``run_****_slam`` executables with ``--map-db-out map_file_name.msg`` option.
 
 .. _section-example-image-sequence:
 
@@ -30,7 +30,7 @@ The source code is placed at ``./example/run_image_slam.cc``.
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
 
-You can create a map database file by running one of the ``run_****_slam`` executables with ``--map-db map_file_name.msg`` option.
+You can create a map database file by running one of the ``run_****_slam`` executables with ``--map-db-out map_file_name.msg`` option.
 
 .. _section-example-standard-datasets:
 
@@ -155,7 +155,7 @@ Tracking and Mapping
         -c ../example/tum_rgbd/TUM_RGBD_mono_3.yaml \
         --no-sleep \
         --auto-term \
-        --map-db fr3_slam_mono.msg
+        --map-db-out fr3_slam_mono.msg
 
     # RGBD SLAM with rgbd_dataset_freiburg3_calibration_rgb_depth
     $ ./run_tum_rgbd_slam \
@@ -164,7 +164,7 @@ Tracking and Mapping
         -c ../example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
         --no-sleep \
         --auto-term \
-        --map-db fr3_slam_rgbd.msg
+        --map-db-out fr3_slam_rgbd.msg
 
 Localization
 ^^^^^^^^^^^^
@@ -173,22 +173,22 @@ Localization
 
     # at the build directory of stella_vslam
     # monocular localization with rgbd_dataset_freiburg3_calibration_rgb_depth
-    $ ./run_tum_rgbd_slam --load-map --disable-mapping \
+    $ ./run_tum_rgbd_slam --disable-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
         -c ../example/tum_rgbd/TUM_RGBD_mono_3.yaml \
         --no-sleep \
         --auto-term \
-        --map-db fr3_slam_mono.msg
+        --map-db-in fr3_slam_mono.msg
 
     # RGBD SLAM with rgbd_dataset_freiburg3_calibration_rgb_depth
-    $ ./run_tum_rgbd_slam --load-map --disable-mapping \
+    $ ./run_tum_rgbd_slam --disable-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
         -c ../example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
         --no-sleep \
         --auto-term \
-        --map-db fr3_slam_rgbd.msg
+        --map-db-in fr3_slam_rgbd.msg
 
 .. _section-example-uvc-camera:
 
