@@ -66,7 +66,7 @@ stella_vslam and stella_vslam_ros need to be built with the same options.
 .. code-block:: bash
 
     cd ~/catkin_ws/src
-    git clone --branch ros2 --depth 1 https://github.com/stella-cv/stella_vslam_ros.git
+    git clone --recursive --branch ros2 --depth 1 https://github.com/stella-cv/stella_vslam_ros.git
     cd ~/ros2_ws
     colcon build --symlink-install --cmake-args -DUSE_PANGOLIN_VIEWER=ON -DUSE_SOCKET_PUBLISHER=OFF
 
