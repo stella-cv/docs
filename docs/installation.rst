@@ -131,7 +131,7 @@ Install the dependencies via ``apt``.
     # backward-cpp dependencies (optional)
     apt install -y binutils-dev
     # other dependencies
-    apt install -y libyaml-cpp-dev libgflags-dev 
+    apt install -y libyaml-cpp-dev libgflags-dev sqlite3 libsqlite3-dev
 
     # (if you plan on using PangolinViewer)
     # Pangolin dependencies
@@ -211,7 +211,7 @@ Install the dependencies via ``brew``.
     brew install ffmpeg
     brew install opencv
     # other dependencies
-    brew install yaml-cpp glog gflags
+    brew install yaml-cpp glog gflags sqlite3
 
     # (if you plan on using PangolinViewer)
     # Pangolin dependencies
