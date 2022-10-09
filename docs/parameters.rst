@@ -179,8 +179,22 @@ Initializer
 
     * - Name
       - Description
-    * - num_min_triangulated_pts
+    * - num_ransac_iterations
+      - max number of iterations of RANSAC (only for monocular initializer)
+    * - min_num_valid_pts
+      - min number of valid pts (It should be greater than or equal to min_num_triangulated_)
+    * - min_num_triangulated_pts
       - Minimum number of triangulated points
+    * - parallax_deg_threshold
+      - min parallax (only for monocular initializer)
+    * - reprojection_error_threshold
+      - reprojection error threshold (only for monocular initializer)
+    * - num_ba_iterations
+      - max number of iterations of BA (only for monocular initializer)
+    * - scaling_factor
+      - initial scaling factor (only for monocular initializer)
+    * - use_fixed_seed
+      - Use fixed random seed for RANSAC if true
 
 .. _section-parameters-relocalizer:
 
