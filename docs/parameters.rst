@@ -117,6 +117,8 @@ Tracking
       - If true, automatically try to relocalize when lost.
     * - use_robust_matcher_for_relocalization_request
       - If true, use robust_matcher for relocalization request.
+    * - max_num_local_keyfrms
+      - Max number of local keyframes for tracking.
 
 .. _section-parameters-mapping:
 
