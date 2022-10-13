@@ -120,7 +120,7 @@ Execute the following commands:
 
     cd /path/to/stella_vslam
     cd viewer
-    docker build -t stella_vslam-server .
+    docker build -t stella_vslam-viewer .
 
 Starting Docker Containers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -133,7 +133,7 @@ Please specify ``--net=host`` in order to share the network with the host machin
 
 .. code-block:: bash
 
-    $ docker run --rm -it --name stella_vslam-server --net=host stella_vslam-server
+    $ docker run --rm -it --name stella_vslam-viewer --net=host stella_vslam-viewer
     WebSocket: listening on *:3000
     HTTP server: listening on *:3001
 
@@ -159,7 +159,7 @@ Please specify ``-p 3001:3001`` for port-forwarding.
 
 .. code-block:: bash
 
-    $ docker run --rm -it --name stella_vslam-server -p 3001:3001 stella_vslam-server
+    $ docker run --rm -it --name stella_vslam-viewer -p 3001:3001 stella_vslam-viewer
     WebSocket: listening on *:3000
     HTTP server: listening on *:3001
 
@@ -170,7 +170,7 @@ Then, inspect the container's IP address and append the ``SocketPublisher.server
 .. code-block:: bash
 
     # inspect the server's IP address
-    $ docker inspect stella_vslam-server | grep -m 1 \"IPAddress\" | sed 's/ //g' | sed 's/,//g'
+    $ docker inspect stella_vslam-viewer | grep -m 1 \"IPAddress\" | sed 's/ //g' | sed 's/,//g'
     "IPAddress": "172.17.0.2"
 
 .. code-block:: yaml

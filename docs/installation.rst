@@ -381,7 +381,7 @@ After building, check to see if it was successfully built by executing ``./run_k
     --log-level arg (=info)  log level
 
 
-.. _section-server-setup:
+.. _section-viewer-setup:
 
 Server Setup for SocketViewer
 =============================
