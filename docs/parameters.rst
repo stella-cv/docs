@@ -285,6 +285,10 @@ SocketPublisher
       - 
     * - server_uri
       - 
+    * - max_num_keyframes
+      - Limit the number of keyframes transferred at one time. This avoids disconnections when loading large maps.
+    * - max_num_landmarks
+      - Limit the number of landmarks transferred at one time. This avoids disconnections when loading large maps.
     * - publish_points
       - If true, pointcloud transfer is enabled. The default is true. Pointcloud transfer is slow, so disabling pointcloud transfer may be useful to improve performance of SocketViewer.
 
