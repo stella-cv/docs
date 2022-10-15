@@ -76,10 +76,15 @@ Examples
 Publisher
 ^^^^^^^^^
 
-If you want to input image sequences or videos into stella_vslam_ros, please refer to `dataset_publisher_ros2 <https://github.com/mirellameelo/dataset_publisher_ros2>`_.
+Publish Images by a video
+-------------------------
+
+.. code-block:: bash
+
+    ros2 run image_publisher image_publisher_node ./aist_living_lab_1/video.mp4 --ros-args --remap /image_raw:=/camera/image_raw
 
 Publish Images Captured by a USB Camera
-------------------------------
+---------------------------------------
 
 For using a standard USB camera for visual SLAM or localization.
 

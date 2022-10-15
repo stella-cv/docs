@@ -82,7 +82,12 @@ Run the core program required for ROS-based system in advance.
 Publisher
 ^^^^^^^^^
 
-If you want to input image sequences or videos into stella_vslam_ros, please use ROS2.
+Publish Images by a video
+-------------------------
+
+.. code-block:: bash
+
+    rosrun image_publisher image_publisher ./aist_living_lab_1/video.mp4 /image_raw:=/camera/image_raw
 
 Publish Images of a USB Camera
 ------------------------------
