@@ -27,7 +27,7 @@ Requirements
 Prerequisites
 ^^^^^^^^^^^^^
 
-Tested for **Ubuntu 18.04**.
+Tested for **Ubuntu 20.04**.
 
 Please install the following dependencies.
 
