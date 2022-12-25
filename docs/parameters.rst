@@ -119,6 +119,8 @@ Tracking
       - If true, use robust_matcher for relocalization request.
     * - max_num_local_keyfrms
       - Max number of local keyframes for tracking.
+    * - backend
+      - g2o or gtsam
 
 .. _section-parameters-mapping:
 
@@ -146,6 +148,8 @@ Mapping
       - If true, enable interruption of landmark generation
     * - enable_interruption_before_local_BA
       - If true, enable interruption before local BA
+    * - backend
+      - g2o or gtsam
 
 .. _section-parameters-stereo-rectifier:
 
@@ -321,6 +325,8 @@ LoopDetector
       - Minimum number of matches to allow for loop candidates after brute force matching. (0 means disabled)
     * - num_optimized_inliers_thr
       - Minimum number of matches to allow for loop candidates after optimization by transform_optimizer
+    * - backend
+      - g2o or gtsam
 
 .. _section-parameters-marker-model:
 
