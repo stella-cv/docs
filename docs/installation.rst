@@ -48,10 +48,8 @@ Requirements for stella_vslam
 .. NOTE ::
 
     OpenCV with GUI support is necessary for using the built-in viewer (Pangolin Viewer).
-
-.. NOTE ::
-
     OpenCV with video support is necessary if you plan on using video files (e.g. ``.mp4``) as inputs.
+    If your CPU has many cores, it is recommended to enable TBB.
 
 Requirements for PangolinViewer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -60,9 +58,13 @@ Requirements for PangolinViewer
 | This viewer is implemented with `Pangolin <https://github.com/stevenlovegrove/Pangolin>`_. Thus, we call it **PangolinViewer**.
 | Please install the following dependencies if you plan on using PangolinViewer.
 
-* `Pangolin <https://github.com/stevenlovegrove/Pangolin>`_ : Please use the latest release. Tested on commit ID `ad8b5f8 <https://github.com/stevenlovegrove/Pangolin/tree/ad8b5f83222291c51b4800d5a5873b0e90a0cf81>`_.
+* `Pangolin <https://github.com/stevenlovegrove/Pangolin>`_ : Please use the latest release. Tested on commit ID `eab3d34 <https://github.com/stevenlovegrove/Pangolin/tree/eab3d3449a33a042b1ee7225e1b8b593b1b21e3e>`_.
 
 * `GLEW <http://glew.sourceforge.net/>`_ : Required by Pangolin.
+
+.. NOTE ::
+
+    If Pangolin version 0.7 or higher, C++17 is required.
 
 .. _subsection-dependencies-socketviewer:
 
@@ -96,10 +98,6 @@ Prerequisites for Unix
 
 .. NOTE ::
 
-    In the following instruction, we assume that ``CMAKE_INSTALL_PREFIX`` is ``/usr/local``. If you want to install the libraries to the different location, set ``CMAKE_INSTALL_PREFIX`` to your environment and **set the environment variables accordingly**.
-
-.. NOTE ::
-
     If your PC is frozen during the build, please reduce the number of parallel compile jobs when executing ``make`` (e.g. ``make -j2``).
 
 .. _section-linux:
@@ -120,9 +118,7 @@ Install the dependencies via ``apt``.
     # g2o dependencies
     apt install -y libatlas-base-dev libsuitesparse-dev
     # OpenCV dependencies
-    apt install -y libgtk-3-dev
-    apt install -y ffmpeg
-    apt install -y libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev
+    apt install -y libgtk-3-dev ffmpeg libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev libtbb-dev
     # eigen dependencies
     apt install -y gfortran
     # backward-cpp dependencies (optional)
@@ -147,43 +143,54 @@ Download and install Eigen from source.
 
     cd /path/to/working/dir
     wget -q https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2
-    tar xf eigen-3.3.7.tar.bz2
-    rm -rf eigen-3.3.7.tar.bz2
+    tar xf eigen-3.3.7.tar.bz2 && rm -rf eigen-3.3.7.tar.bz2
     cd eigen-3.3.7
     mkdir -p build && cd build
     cmake \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
         ..
-    make -j4
-    make install
+    make -j4 && make install
 
 Download, build and install OpenCV from source.
 
 .. code-block:: bash
 
     cd /path/to/working/dir
-    wget -q https://github.com/opencv/opencv/archive/3.4.0.zip
-    unzip -q 3.4.0.zip
-    rm -rf 3.4.0.zip
-    cd opencv-3.4.0
+    # Download OpenCV
+    wget -q https://github.com/opencv/opencv/archive/4.5.5.zip
+    unzip -q 4.5.5.zip && rm -rf 4.5.5.zip
+    # Download aruco module (optional)
+    wget -q https://github.com/opencv/opencv_contrib/archive/refs/tags/4.5.5.zip -O opencv_contrib-4.5.5.zip
+    unzip -q opencv_contrib-4.5.5.zip && rm -rf opencv_contrib-4.5.5.zip
+    mkdir -p extra && mv opencv_contrib-4.5.5/modules/aruco extra
+    rm -rf opencv_contrib-4.5.5
+    # Build and install OpenCV
+    cd opencv-4.5.5
     mkdir -p build && cd build
     cmake \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
-        -DENABLE_CXX11=ON \
         -DBUILD_DOCS=OFF \
         -DBUILD_EXAMPLES=OFF \
         -DBUILD_JASPER=OFF \
         -DBUILD_OPENEXR=OFF \
         -DBUILD_PERF_TESTS=OFF \
         -DBUILD_TESTS=OFF \
+        -DBUILD_PROTOBUF=OFF \
+        -DBUILD_opencv_apps=OFF \
+        -DBUILD_opencv_dnn=OFF \
+        -DBUILD_opencv_ml=OFF \
+        -DBUILD_opencv_python_bindings_generator=OFF \
+        -DENABLE_CXX11=ON \
+        -DENABLE_FAST_MATH=ON \
         -DWITH_EIGEN=ON \
         -DWITH_FFMPEG=ON \
+        -DWITH_TBB=ON \
         -DWITH_OPENMP=ON \
+        -DOPENCV_EXTRA_MODULES_PATH=/tmp/extra \
         ..
-    make -j4
-    make install
+    make -j4 && make install
 
 Jump to :ref:`Common Installation Instructions <subsection-common-linux-macos>` for the next step.
 
@@ -204,9 +211,7 @@ Install the dependencies via ``brew``.
     # g2o dependencies
     brew install suite-sparse
     # OpenCV dependencies and OpenCV
-    brew install eigen
-    brew install ffmpeg
-    brew install opencv
+    brew install eigen ffmpeg opencv
     # other dependencies
     brew install yaml-cpp glog gflags sqlite3
 
@@ -239,8 +244,7 @@ Download, build and install **the custom FBoW** from source.
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
         ..
-    make -j4
-    make install
+    make -j4 && make install
 
 Download, build and install g2o.
 
@@ -254,16 +258,17 @@ Download, build and install g2o.
     cmake \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
-        -DCMAKE_CXX_FLAGS=-std=c++11 \
         -DBUILD_SHARED_LIBS=ON \
         -DBUILD_UNITTESTS=OFF \
         -DG2O_USE_CHOLMOD=OFF \
         -DG2O_USE_CSPARSE=ON \
         -DG2O_USE_OPENGL=OFF \
         -DG2O_USE_OPENMP=OFF \
+        -DG2O_BUILD_APPS=OFF \
+        -DG2O_BUILD_EXAMPLES=OFF \
+        -DG2O_BUILD_LINKED_APPS=OFF \
         ..
-    make -j4
-    make install
+    make -j4 && make install
 
 | (**if you plan on using PangolinViewer**)
 | Download, build and install Pangolin from source.
@@ -273,14 +278,31 @@ Download, build and install g2o.
     cd /path/to/working/dir
     git clone https://github.com/stevenlovegrove/Pangolin.git
     cd Pangolin
-    git checkout ad8b5f83222291c51b4800d5a5873b0e90a0cf81
+    git checkout eab3d3449a33a042b1ee7225e1b8b593b1b21e3e
     mkdir build && cd build
     cmake \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
+        -DBUILD_EXAMPLES=OFF \
+        -DBUILD_PANGOLIN_DEPTHSENSE=OFF \
+        -DBUILD_PANGOLIN_FFMPEG=OFF \
+        -DBUILD_PANGOLIN_LIBDC1394=OFF \
+        -DBUILD_PANGOLIN_LIBJPEG=OFF \
+        -DBUILD_PANGOLIN_LIBOPENEXR=OFF \
+        -DBUILD_PANGOLIN_LIBPNG=OFF \
+        -DBUILD_PANGOLIN_LIBTIFF=OFF \
+        -DBUILD_PANGOLIN_LIBUVC=OFF \
+        -DBUILD_PANGOLIN_LZ4=OFF \
+        -DBUILD_PANGOLIN_OPENNI=OFF \
+        -DBUILD_PANGOLIN_OPENNI2=OFF \
+        -DBUILD_PANGOLIN_PLEORA=OFF \
+        -DBUILD_PANGOLIN_PYTHON=OFF \
+        -DBUILD_PANGOLIN_TELICAM=OFF \
+        -DBUILD_PANGOLIN_UVC_MEDIAFOUNDATION=OFF \
+        -DBUILD_PANGOLIN_V4L=OFF \
+        -DBUILD_PANGOLIN_ZSTD=OFF \
         ..
-    make -j4
-    make install
+    make -j4 && make install
 
 | (**if you plan on using SocketViewer**)
 | Download, build and install socket.io-client-cpp from source.
@@ -345,8 +367,7 @@ When building with support for PangolinViewer, please specify the following cmak
         -DBUILD_TESTS=ON \
         -DBUILD_EXAMPLES=ON \
         ..
-    make -j4
-    make install
+    make -j4 && make install
 
 When building with support for SocketViewer, please specify the following cmake options: ``-DUSE_PANGOLIN_VIEWER=OFF`` and ``-DUSE_SOCKET_PUBLISHER=ON``.
 
@@ -361,8 +382,7 @@ When building with support for SocketViewer, please specify the following cmake 
         -DBUILD_TESTS=ON \
         -DBUILD_EXAMPLES=ON \
         ..
-    make -j4
-    make install
+    make -j4 && make install
 
 After building, check to see if it was successfully built by executing ``./run_kitti_slam -h``.
 
