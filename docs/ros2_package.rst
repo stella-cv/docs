@@ -43,7 +43,7 @@ Download repositories of ``image_common`` and ``vision_opencv``.
 
 .. code-block:: bash
 
-    midir -p ~/ros2_ws/src
+    mkdir -p ~/ros2_ws/src
     cd ~/ros2_ws/src
     git clone -b ${ROS_DISTRO} --single-branch https://github.com/ros-perception/image_common.git
     git clone -b ros2 --single-branch https://github.com/ros-perception/vision_opencv.git
@@ -65,7 +65,7 @@ stella_vslam and stella_vslam_ros need to be built with the same options.
 
 .. code-block:: bash
 
-    cd ~/catkin_ws/src
+    cd ~/ros2_ws/src
     git clone --recursive --branch ros2 --depth 1 https://github.com/stella-cv/stella_vslam_ros.git
     cd ~/ros2_ws
     colcon build --symlink-install --cmake-args -DUSE_PANGOLIN_VIEWER=ON -DUSE_SOCKET_PUBLISHER=OFF
