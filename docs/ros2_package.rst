@@ -43,7 +43,7 @@ Download repositories of ``image_common`` and ``vision_opencv``.
 
 .. code-block:: bash
 
-    midir -p ~/ros2_ws/src
+    mkdir -p ~/ros2_ws/src
     cd ~/ros2_ws/src
     git clone -b ${ROS_DISTRO} --single-branch https://github.com/ros-perception/image_common.git
     git clone -b ros2 --single-branch https://github.com/ros-perception/vision_opencv.git
