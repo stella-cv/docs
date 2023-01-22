@@ -361,10 +361,12 @@ When building with support for PangolinViewer, please specify the following cmak
     cd /path/to/stella_vslam
     mkdir build && cd build
     cmake \
+        -DUSE_STACK_TRACE_LOGGER=ON \
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
         -DUSE_PANGOLIN_VIEWER=ON \
         -DINSTALL_PANGOLIN_VIEWER=ON \
         -DUSE_SOCKET_PUBLISHER=OFF \
-        -DBUILD_TESTS=ON \
+        -DBUILD_TESTS=OFF \
         -DBUILD_EXAMPLES=ON \
         ..
     make -j4 && make install
@@ -376,10 +378,12 @@ When building with support for SocketViewer, please specify the following cmake 
     cd /path/to/stella_vslam
     mkdir build && cd build
     cmake \
+        -DUSE_STACK_TRACE_LOGGER=ON \
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
         -DUSE_PANGOLIN_VIEWER=OFF \
         -DUSE_SOCKET_PUBLISHER=ON \
         -DINSTALL_SOCKET_PUBLISHER=ON \
-        -DBUILD_TESTS=ON \
+        -DBUILD_TESTS=OFF \
         -DBUILD_EXAMPLES=ON \
         ..
     make -j4 && make install
