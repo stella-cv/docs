@@ -43,7 +43,7 @@ Requirements for stella_vslam
 
 * `yaml-cpp <https://github.com/jbeder/yaml-cpp>`_ : version 0.6.0 or later.
 
-* `OpenCV <https://opencv.org/>`_ : version 3.3.1 or later.
+* `OpenCV <https://opencv.org/>`_ : version 3.3.1 to 4.6.
 
 .. NOTE ::
 
