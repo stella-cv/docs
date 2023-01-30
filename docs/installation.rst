@@ -150,7 +150,7 @@ Download and install Eigen from source.
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
         ..
-    make -j4 && make install
+    make -j4 && sudo make install
 
 Download, build and install OpenCV from source.
 
@@ -190,7 +190,7 @@ Download, build and install OpenCV from source.
         -DWITH_OPENMP=ON \
         -DOPENCV_EXTRA_MODULES_PATH=/tmp/extra \
         ..
-    make -j4 && make install
+    make -j4 && sudo make install
 
 Jump to :ref:`Common Installation Instructions <subsection-common-linux-macos>` for the next step.
 
@@ -244,7 +244,7 @@ Download, build and install **the custom FBoW** from source.
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
         ..
-    make -j4 && make install
+    make -j4 && sudo make install
 
 Download, build and install g2o.
 
@@ -268,7 +268,7 @@ Download, build and install g2o.
         -DG2O_BUILD_EXAMPLES=OFF \
         -DG2O_BUILD_LINKED_APPS=OFF \
         ..
-    make -j4 && make install
+    make -j4 && sudo make install
 
 Download, build and install backward-cpp.
 
@@ -283,7 +283,7 @@ Download, build and install backward-cpp.
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
         ..
-    make -j4 && make install
+    make -j4 && sudo make install
 
 | (**if you plan on using PangolinViewer**)
 | Download, build and install Pangolin from source.
@@ -317,7 +317,7 @@ Download, build and install backward-cpp.
         -DBUILD_PANGOLIN_V4L=OFF \
         -DBUILD_PANGOLIN_ZSTD=OFF \
         ..
-    make -j4 && make install
+    make -j4 && sudo make install
 
 | (**if you plan on using SocketViewer**)
 | Download, build and install socket.io-client-cpp from source.
@@ -336,7 +336,7 @@ Download, build and install backward-cpp.
         -DBUILD_UNIT_TESTS=OFF \
         ..
     make -j4
-    make install
+    sudo make install
 
 | (**if you plan on using SocketViewer**)
 | Install Protobuf.
@@ -362,7 +362,7 @@ Otherwise, please download, build and install Protobuf from source.
         --prefix=/usr/local \
         --enable-static=no
     make -j4
-    make install
+    sudo make install
 
 .. _section-build-unix:
 
@@ -384,7 +384,7 @@ When building with support for PangolinViewer, please specify the following cmak
         -DBUILD_TESTS=OFF \
         -DBUILD_EXAMPLES=ON \
         ..
-    make -j4 && make install
+    make -j4 && sudo make install
 
 When building with support for SocketViewer, please specify the following cmake options: ``-DUSE_PANGOLIN_VIEWER=OFF`` and ``-DUSE_SOCKET_PUBLISHER=ON``.
 
@@ -401,7 +401,7 @@ When building with support for SocketViewer, please specify the following cmake 
         -DBUILD_TESTS=OFF \
         -DBUILD_EXAMPLES=ON \
         ..
-    make -j4 && make install
+    make -j4 && sudo make install
 
 After building, check to see if it was successfully built by executing ``./run_kitti_slam -h``.
 
