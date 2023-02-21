@@ -141,7 +141,7 @@ Download and install Eigen from source.
 
 .. code-block:: bash
 
-    cd /path/to/working/dir
+    cd /tmp
     wget -q https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2
     tar xf eigen-3.3.7.tar.bz2 && rm -rf eigen-3.3.7.tar.bz2
     cd eigen-3.3.7
@@ -156,7 +156,7 @@ Download, build and install OpenCV from source.
 
 .. code-block:: bash
 
-    cd /path/to/working/dir
+    cd /tmp
     # Download OpenCV
     wget -q https://github.com/opencv/opencv/archive/4.5.5.zip
     unzip -q 4.5.5.zip && rm -rf 4.5.5.zip
@@ -236,7 +236,7 @@ Download, build and install **the custom FBoW** from source.
 
 .. code-block:: bash
 
-    cd /path/to/working/dir
+    cd /tmp
     git clone https://github.com/stella-cv/FBoW.git
     cd FBoW
     mkdir build && cd build
@@ -250,7 +250,7 @@ Download, build and install g2o.
 
 .. code-block:: bash
 
-    cd /path/to/working/dir
+    cd /tmp
     git clone https://github.com/RainerKuemmerle/g2o.git
     cd g2o
     git checkout ed40a5bb028566fd56a78fd7b04921b613492d6f
@@ -274,7 +274,7 @@ Download, build and install backward-cpp.
 
 .. code-block:: bash
 
-    cd /path/to/working/dir
+    cd /tmp
     git clone https://github.com/bombela/backward-cpp.git
     cd backward-cpp
     git checkout 5ffb2c879ebdbea3bdb8477c671e32b1c984beaa
@@ -290,7 +290,7 @@ Download, build and install backward-cpp.
 
 .. code-block:: bash
 
-    cd /path/to/working/dir
+    cd /tmp
     git clone https://github.com/stevenlovegrove/Pangolin.git
     cd Pangolin
     git checkout eab3d3449a33a042b1ee7225e1b8b593b1b21e3e
@@ -324,7 +324,7 @@ Download, build and install backward-cpp.
 
 .. code-block:: bash
 
-    cd /path/to/working/dir
+    cd /tmp
     git clone https://github.com/shinsumicco/socket.io-client-cpp.git
     cd socket.io-client-cpp
     git submodule init
