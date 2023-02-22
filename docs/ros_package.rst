@@ -12,7 +12,7 @@ Installation
 Requirements
 ^^^^^^^^^^^^
 
-* `ROS <http://wiki.ros.org/>`_ : ``noetic`` is recommended. (If you have built OpenCV (3.3.1 or later) manually, you can use ``melodic`` or later.)
+* `ROS <http://wiki.ros.org/>`_ : ``noetic``
 
 * :ref:`stella_vslam <chapter-installation>`
 
@@ -25,7 +25,7 @@ Requirements
 Prerequisites
 ^^^^^^^^^^^^^
 
-Tested for **Ubuntu 18.04**.
+Tested for **Ubuntu 20.04**.
 
 Please install the following dependencies.
 

@@ -105,7 +105,7 @@ Prerequisites for Unix
 Installing for Linux
 ^^^^^^^^^^^^^^^^^^^^
 
-Tested for **Ubuntu 18.04**.
+Tested for **Ubuntu 20.04**.
 
 Install the dependencies via ``apt``.
 
@@ -341,11 +341,11 @@ Download, build and install backward-cpp.
 | (**if you plan on using SocketViewer**)
 | Install Protobuf.
 
-If you use Ubuntu 18.04 or macOS, Protobuf 3.x can be installed via ``apt`` or ``brew``.
+If you use Ubuntu 20.04 (or later) or macOS, Protobuf 3.x can be installed via ``apt`` or ``brew``.
 
 .. code-block:: bash
 
-    # for Ubuntu 18.04 (or later)
+    # for Ubuntu
     apt install -y libprotobuf-dev protobuf-compiler
     # for macOS
     brew install protobuf
