@@ -53,7 +53,7 @@ In order to enable X11 forwarding, supplemental options (``-e DISPLAY=$DISPLAY``
     # before launching the container, allow display access from local users
     xhost +local:
     # launch the container
-    docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix:ro stella_vslam-desktop
+    docker run -it --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix:ro stella_vslam-desktop
 
 .. NOTE ::
 
