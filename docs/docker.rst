@@ -57,9 +57,7 @@ In order to enable X11 forwarding, supplemental options (``-e DISPLAY=$DISPLAY``
 
 .. NOTE ::
 
-    Additional option ``--runtime=nvidia`` is needed if you use NVIDIA graphics card(s).  
-    If you're using Docker with **Native GPU Support** then the options are ``--gpus all``.
-    Please see `here <https://github.com/NVIDIA/nvidia-docker/wiki/Installation-(Native-GPU-Support)#usage>`_ for more details.
+    Additional option ``--gpus all`` is needed if you use NVIDIA graphics card(s).
 
 
 After launching the container, the shell interface will be launched in the docker container.
@@ -74,7 +72,7 @@ See :ref:`Tutorial <chapter-simple-tutorial>` to run SLAM examples in the contai
 
 .. NOTE ::
 
-    If the viewer does not work, please :ref:`install the dependencies manually <section-dependencies>` on your host machine or use :ref:`the docker images for SocketViewer <section-instructions-for-socketviewer>` instead.
+    If the viewer does not work, see :ref:`Trouble Shooting <section-trouble-viewer>`
 
 If you need to access to any files and directories on a host machine from the container, :ref:`bind directories <section-directory-binding>` between the host and the container.
 
