@@ -35,7 +35,7 @@ Requirements for stella_vslam
 
 * `Eigen <http://eigen.tuxfamily.org/>`_ : version 3.3.0 or later.
 
-* `g2o <https://github.com/RainerKuemmerle/g2o>`_ : Please use the latest release. Tested on commit ID `ed40a5b <https://github.com/RainerKuemmerle/g2o/tree/ed40a5bb028566fd56a78fd7b04921b613492d6f>`_.
+* `g2o <https://github.com/RainerKuemmerle/g2o>`_ : 20230223_git or later.
 
 * `SuiteSparse <http://faculty.cse.tamu.edu/davis/suitesparse.html>`_ : Required by g2o.
 
@@ -253,7 +253,7 @@ Download, build and install g2o.
     cd /tmp
     git clone https://github.com/RainerKuemmerle/g2o.git
     cd g2o
-    git checkout ed40a5bb028566fd56a78fd7b04921b613492d6f
+    git checkout 20230223_git
     mkdir build && cd build
     cmake \
         -DCMAKE_BUILD_TYPE=Release \
