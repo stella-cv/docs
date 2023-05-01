@@ -121,6 +121,8 @@ Tracking
       - Max number of local keyframes for tracking.
     * - backend
       - g2o or gtsam
+    * - init_retry_threshold_time
+      - If tracking is failed within init_retry_threshold_time sec after initialization, reset the system
 
 .. _section-parameters-mapping:
 
