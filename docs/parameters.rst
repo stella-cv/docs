@@ -224,9 +224,15 @@ Relocalizer
     * - proj_match_lowe_ratio
       - 
     * - min_num_bow_matches
-      - 
+      - minimum threshold of the number of BoW matches
     * - min_num_valid_obs
-      - 
+      - minimum threshold of the number of valid (= inlier after pose optimization) matches
+    * - use_fixed_seed
+      - Use fixed random seed for RANSAC if true
+    * - search_neighbor
+      - If true, points used by the PnP solver are searched not only from candidate keyframes, but also from neighbor keyframes
+    * - top_n_covisibilities_to_search
+      - number of neighbor keyframes
 
 .. _section-parameters-keyframe-inserter:
 
