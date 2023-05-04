@@ -123,6 +123,8 @@ Tracking
       - g2o or gtsam
     * - init_retry_threshold_time
       - If tracking is failed within init_retry_threshold_time sec after initialization, reset the system
+    * - enable_temporal_keyframe_only_tracking
+      - If true, tracking with only temporal keyframes will not be treated as Lost
 
 .. _section-parameters-mapping:
 
@@ -152,6 +154,10 @@ Mapping
       - If true, enable interruption before local BA
     * - backend
       - g2o or gtsam
+    * - erase_temporal_keyframes
+      - If true, remove keyframes past num_temporal_keyframes
+    * - num_temporal_keyframes
+      - Number of temporal keyframes
 
 .. _section-parameters-stereo-rectifier:
 
