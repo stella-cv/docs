@@ -32,7 +32,8 @@ Please see the ``*.cc`` files in ``./example`` directory or check  :ref:`Simple 
 Also, some examples to run stella_vslam on ROS framework are provided.
 Please check :ref:`ROS Package <chapter-ros-package>`.
 
-Please contact us via `GitHub issues <https://github.com/stella-cv/stella_vslam/issues>`__ if you have any questions or notice any bugs about the software.
+If you notice any bugs, report them to `GitHub issues <https://github.com/stella-cv/stella_vslam/issues>`__.
+If you have any questions, ask them at `GitHub Discussions <https://github.com/stella-cv/stella_vslam/discussions>`__.
 
 .. _section-overview-installation:
 
