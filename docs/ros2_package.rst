@@ -121,7 +121,8 @@ The source code is placed at ``stella_vslam_ros/src/run_slam.cc``.
     ros2 run stella_vslam_ros run_slam \
         -v /path/to/orb_vocab.fbow \
         -c /path/to/config.yaml \
-        --map-db-out /path/to/map.msg
+        --map-db-out /path/to/map.msg \
+        --ros-args -p publish_tf:=false
 
 Localization
 ------------
@@ -136,4 +137,25 @@ The source code is placed at ``stella_vslam_ros/src/run_slam.cc``.
         --disable-mapping \
         -v /path/to/orb_vocab.fbow \
         -c /path/to/config.yaml \
-        --map-db-in /path/to/map.msg
+        --map-db-in /path/to/map.msg \
+        --ros-args -p publish_tf:=false
+
+.. _section-offline-slam:
+
+Offline SLAM
+------------
+
+We provide an example snippet for localization based on a prebuilt map.
+The source code is placed at ``stella_vslam_ros/src/run_slam.cc``.
+
+.. code-block:: bash
+
+    source ~/ros2_ws/install/setup.bash
+    ros2 run stella_vslam_ros run_slam_offline \
+        -b /path/to/bagfile.bag2 \
+        -v /path/to/orb_vocab.fbow \
+        -c /path/to/config.yaml \
+        -o /path/to/map.msg \
+        --camera=your_camera_topic_namespace \
+        --storage-id=sqlite3 \
+        --ros-args -p publish_tf:=false

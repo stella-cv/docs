@@ -6,6 +6,10 @@ Example
 
 We provided example code snippets for running stella_vslam with variety of datasets.
 
+.. NOTE ::
+
+    (For ROS2 users) run_slam_offline node allows you to run SLAM by reading rosbag2 file directly. See :ref:`here <section-offline-slam>`.
+
 .. _section-example-video:
 
 SLAM with Video Files
