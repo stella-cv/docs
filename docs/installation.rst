@@ -4,6 +4,7 @@
 Installation
 ============
 
+If ROS is installed, see :ref:`Running on ROS <chapter-ros>`
 
 .. _section-get-source:
 
@@ -43,7 +44,7 @@ Requirements for stella_vslam
 
 * `yaml-cpp <https://github.com/jbeder/yaml-cpp>`_ : version 0.6.0 or later.
 
-* `OpenCV <https://opencv.org/>`_ : version 3.3.1 or later. (NOTE: If ROS is installed, use the one installed with ROS.)
+* `OpenCV <https://opencv.org/>`_ : version 3.3.1 or later.
 
 .. NOTE ::
 
@@ -152,7 +153,7 @@ Download and install Eigen from source.
         ..
     make -j4 && sudo make install
 
-Download, build and install OpenCV from source. (NOTE: If ROS is installed, never do the following steps.)
+Download, build and install OpenCV from source.
 
 .. code-block:: bash
 

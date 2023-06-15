@@ -9,19 +9,6 @@ ROS2 Package
 Installation
 ============
 
-Requirements
-^^^^^^^^^^^^
-
-* `ROS2 <https://index.ros.org/doc/ros2//>`_ : ``foxy`` or later.
-
-* :ref:`stella_vslam <chapter-installation>`
-
-* `image_common <https://index.ros.org/r/image_common/github-ros-perception-image_common>`_ : Required by this ROS package examples.
-
-* `vision_opencv <https://index.ros.org/r/vision_opencv/github-ros-perception-vision_opencv>`_ : Please build it with the same version of OpenCV used in stella_vslam.
-
-* `image_tools <https://index.ros.org/p/image_tools/#dashing>`_ : An optional requirement to use USB cameras.
-
 .. _section-prerequisites:
 
 Prerequisites
@@ -31,24 +18,113 @@ Tested for **Ubuntu 20.04**.
 
 Please install the following dependencies.
 
-* ROS2 : Please follow `Installation of ROS2 <https://index.ros.org/doc/ros2/Installation/>`_.
+* ROS2 : ``foxy`` or later. Please follow `Installation of ROS2 <https://index.ros.org/doc/ros2/Installation/>`_.
 
-* stella_vslam : Please follow :ref:`Installation of stella_vslam <chapter-installation>`.
+* `image_tools <https://index.ros.org/p/image_tools/#dashing>`_ : An optional requirement to use USB cameras.
 
-.. NOTE ::
+Build Instructions
+^^^^^^^^^^^^^^^^^^
 
-    Please build stella_vslam with PangolinViewer or SocketViewer if you plan on using it for the examples.
-
-Download repositories of ``image_common`` and ``vision_opencv``.
+(If using Pangolin)
 
 .. code-block:: bash
 
+    sudo apt install -y libglew-dev
+    git clone https://github.com/stevenlovegrove/Pangolin.git
+    cd Pangolin
+    git checkout ad8b5f83
+    sed -i -e "193,198d" ./src/utils/file_utils.cpp
+    mkdir -p build
+    cd build
+    cmake \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DBUILD_EXAMPLES=OFF \
+        -DBUILD_PANGOLIN_DEPTHSENSE=OFF \
+        -DBUILD_PANGOLIN_FFMPEG=OFF \
+        -DBUILD_PANGOLIN_LIBDC1394=OFF \
+        -DBUILD_PANGOLIN_LIBJPEG=OFF \
+        -DBUILD_PANGOLIN_LIBOPENEXR=OFF \
+        -DBUILD_PANGOLIN_LIBPNG=OFF \
+        -DBUILD_PANGOLIN_LIBREALSENSE=OFF \
+        -DBUILD_PANGOLIN_LIBREALSENSE2=OFF \
+        -DBUILD_PANGOLIN_LIBTIFF=OFF \
+        -DBUILD_PANGOLIN_LIBUVC=OFF \
+        -DBUILD_PANGOLIN_LZ4=OFF \
+        -DBUILD_PANGOLIN_OPENNI=OFF \
+        -DBUILD_PANGOLIN_OPENNI2=OFF \
+        -DBUILD_PANGOLIN_PLEORA=OFF \
+        -DBUILD_PANGOLIN_PYTHON=OFF \
+        -DBUILD_PANGOLIN_TELICAM=OFF \
+        -DBUILD_PANGOLIN_TOON=OFF \
+        -DBUILD_PANGOLIN_UVC_MEDIAFOUNDATION=OFF \
+        -DBUILD_PANGOLIN_V4L=OFF \
+        -DBUILD_PANGOLIN_VIDEO=OFF \
+        -DBUILD_PANGOLIN_ZSTD=OFF \
+        -DBUILD_PYPANGOLIN_MODULE=OFF \
+        ..
+    make -j$(($(nproc) / 2))
+    make install
+
+(If using SocketViewer)
+
+.. code-block:: bash
+
+    sudo apt install -y autogen autoconf libtool
+    cd /tmp
+    git clone https://github.com/shinsumicco/socket.io-client-cpp.git
+    cd socket.io-client-cpp
+    git submodule init
+    git submodule update
+    mkdir build && cd build
+    cmake \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr/local \
+        -DBUILD_UNIT_TESTS=OFF \
+        ..
+    make -j4
+    sudo make install
+    sudo apt install -y libprotobuf-dev protobuf-compiler
+    wget -q https://github.com/google/protobuf/archive/v3.6.1.tar.gz
+    tar xf v3.6.1.tar.gz
+    cd protobuf-3.6.1
+    ./autogen.sh
+    ./configure \
+        --prefix=/usr/local \
+        --enable-static=no
+    make -j4
+    sudo make install
+
+.. code-block:: bash
+
+    rosdep update
+    sudo apt update
+    mkdir -p ~/lib
+    cd ~/lib
+    git clone --recursive --depth 1 https://github.com/stella-cv/stella_vslam.git
+    rosdep install -y -i --from-paths ~/lib
+    cd ~/lib/stella_vslam
+    mkdir -p ~/lib/stella_vslam/build
+    cd ~/lib/stella_vslam/build
+    source /opt/ros/${ROS_DISTRO}/setup.bash
+    USE_PANGOLIN_VIEWER=ON # ON if using Pangolin
+    USE_SOCKET_PUBLISHER=OFF # ON if using SocketViewer
+    cmake .. \
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+        -DUSE_PANGOLIN_VIEWER=$USE_PANGOLIN_VIEWER \
+        -DINSTALL_PANGOLIN_VIEWER=$USE_PANGOLIN_VIEWER \
+        -DUSE_SOCKET_PUBLISHER=$USE_SOCKET_PUBLISHER \
+        -DINSTALL_SOCKET_PUBLISHER=$USE_SOCKET_PUBLISHER \
+        ..
+    make -j
+    sudo make install
     mkdir -p ~/ros2_ws/src
     cd ~/ros2_ws/src
-    git clone -b ${ROS_DISTRO} --single-branch https://github.com/ros-perception/image_common.git
-    git clone -b ros2 --single-branch https://github.com/ros-perception/vision_opencv.git
+    git clone --recursive -b ros2 --depth 1 https://github.com/stella-cv/stella_vslam_ros.git
+    cd ~/ros2_ws
+    rosdep install -y -i --from-paths ~/ros2_ws/src --skip-keys=stella_vslam
+    colcon build --symlink-install --cmake-args -DUSE_PANGOLIN_VIEWER=ON -DUSE_SOCKET_PUBLISHER=OFF
 
-For using USB cam as a image source, donload a repository of ``demos`` and pick ``image_tools`` module.
+For using USB cam as a image source, download a repository of ``demos`` and pick ``image_tools`` module.
 
 .. code-block:: bash
 
@@ -56,19 +132,6 @@ For using USB cam as a image source, donload a repository of ``demos`` and pick 
     git clone https://github.com/ros2/demos.git
     cp -r demos/image_tools src/
     rm -rf demos
-
-Build Instructions
-^^^^^^^^^^^^^^^^^^
-
-When building with support for PangolinViewer, please specify the following cmake options: ``-DUSE_PANGOLIN_VIEWER=ON`` and ``-DUSE_SOCKET_PUBLISHER=OFF`` as described in :ref:`build of stella_vslam <section-build-unix>`.
-stella_vslam and stella_vslam_ros need to be built with the same options.
-
-.. code-block:: bash
-
-    cd ~/ros2_ws/src
-    git clone --recursive --branch ros2 --depth 1 https://github.com/stella-cv/stella_vslam_ros.git
-    cd ~/ros2_ws
-    colcon build --symlink-install --cmake-args -DUSE_PANGOLIN_VIEWER=ON -DUSE_SOCKET_PUBLISHER=OFF
 
 Examples
 ========
