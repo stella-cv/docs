@@ -194,6 +194,37 @@ Localization
         --auto-term \
         --map-db-in fr3_slam_rgbd.msg
 
+Localization with temporal mapping based odometry
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This feature can be used to add keyframes to stabilize localization results.
+
+.. code-block:: bash
+
+    # at the build directory of stella_vslam
+    # monocular localization with rgbd_dataset_freiburg3_calibration_rgb_depth
+    $ ./run_tum_rgbd_slam --temporal-mapping \
+        -v /path/to/orb_vocab/orb_vocab.fbow \
+        -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
+        -c ../example/tum_rgbd/TUM_RGBD_mono_3.yaml \
+        --no-sleep \
+        --auto-term \
+        --map-db-in fr3_slam_mono.msg
+
+    # RGBD SLAM with rgbd_dataset_freiburg3_calibration_rgb_depth
+    $ ./run_tum_rgbd_slam --temporal-mapping \
+        -v /path/to/orb_vocab/orb_vocab.fbow \
+        -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
+        -c ../example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
+        --no-sleep \
+        --auto-term \
+        --map-db-in fr3_slam_rgbd.msg
+
+* If run with ``--temporal-mapping``, loaded keyframes are prioritized for localization/localBA.
+* If set parameter ``erase_temporal_keyframes`` to true, it will remove keyframes older than ``num_temporal_keyframes``.
+* If set parameter ``enable_temporal_keyframe_only_tracking`` to true, then tracking with only temporal keyframes will not be treated as Lost. If ``--temporal-mapping`` is not set, ``enable_temporal_keyframe_only_tracking`` will be ignored.
+* Enabling all three of the above will run Visual SLAM with a limited number of keyframes
+
 .. _section-example-uvc-camera:
 
 SLAM with UVC camera

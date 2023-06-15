@@ -46,6 +46,8 @@ The later parts of this chapter explains what each of the commands do in more de
 
     # run localization
     ./run_video_slam --disable-mapping -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-in map.msg
+    # run localization with temporal mapping based odometry. loaded keyframes are prioritized for localization/localBA.
+    ./run_video_slam --temporal-mapping -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-in map.msg
 
 
 Sample Datasets
