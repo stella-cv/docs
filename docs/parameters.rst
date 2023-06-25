@@ -257,6 +257,8 @@ KeyframeInserter
       - Threshold at which we consider that we are tracking almost all landmarks. Ratio-threshold of "the number of 3D points observed in the current frame" / "that of 3D points observed in the last keyframe"
     * - lms_ratio_thr_view_changed
       - Threshold at which we consider the view to have changed. Ratio-threshold of "the number of 3D points observed in the current frame" / "that of 3D points observed in the last keyframe"
+    * - wait_for_local_bundle_adjustment
+      - If true, wait for the inserted keyframe to be processed. It cannot be processed in real time, but reproducibility and accuracy will be improved.
 
 .. _section-parameters-pangolin:
 
