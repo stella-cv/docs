@@ -36,7 +36,7 @@ Requirements for stella_vslam
 
 * `Eigen <http://eigen.tuxfamily.org/>`_ : version 3.3.0 or later.
 
-* `g2o <https://github.com/RainerKuemmerle/g2o>`_ : 20230223_git or later.
+* `g2o <https://github.com/RainerKuemmerle/g2o>`_ : 20230223_git or later. 20230223_git is recommended.
 
 * `SuiteSparse <http://faculty.cse.tamu.edu/davis/suitesparse.html>`_ : Required by g2o.
 
