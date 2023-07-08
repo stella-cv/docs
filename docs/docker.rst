@@ -77,7 +77,7 @@ If you need to access to any files and directories on a host machine from the co
 Instructions for SocketViewer
 =============================
 
-``Dockerfile.socket`` and ``viewer/Dockerfile`` can be used for easy installation.
+``Dockerfile.socket`` and ``Dockerfile`` in `socket_viewer <https://github.com/stella-cv/socket_viewer>`__ can be used for easy installation.
 This chapter provides instructions on building and running examples with SocketViewer support using Docker.
 
 Building Docker Images
@@ -108,8 +108,8 @@ Execute the following commands:
 
 .. code-block:: bash
 
-    cd /path/to/stella_vslam
-    cd viewer
+    git clone --recursive https://github.com/stella-cv/socket_viewer.git
+    cd socket_viewer
     docker build -t stella_vslam-viewer .
 
 Starting Docker Containers

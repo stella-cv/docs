@@ -429,7 +429,8 @@ If you plan on using SocketViewer, please setup the environment for the server w
 
 .. code-block:: bash
 
-    $ cd /path/to/stella_vslam/viewer
+    $ git clone --recursive https://github.com/stella-cv/socket_viewer.git
+    $ cd socket_viewer
     $ ls
     Dockerfile  app.js  package.json  public  views
     $ npm install
@@ -442,7 +443,8 @@ Then, launch the server with ``node app.js``.
 
 .. code-block:: bash
 
-    $ cd /path/to/stella_vslam/viewer
+    $ git clone --recursive https://github.com/stella-cv/socket_viewer.git
+    $ cd socket_viewer
     $ ls
     Dockerfile  app.js  node_modules  package-lock.json  package.json  public  views
     $ node app.js
