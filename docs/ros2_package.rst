@@ -106,23 +106,34 @@ Build Instructions
     mkdir -p ~/lib/stella_vslam/build
     cd ~/lib/stella_vslam/build
     source /opt/ros/${ROS_DISTRO}/setup.bash
-    USE_PANGOLIN_VIEWER=ON # ON if using Pangolin
-    USE_SOCKET_PUBLISHER=OFF # ON if using SocketViewer
-    cmake .. \
-        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-        -DUSE_PANGOLIN_VIEWER=$USE_PANGOLIN_VIEWER \
-        -DINSTALL_PANGOLIN_VIEWER=$USE_PANGOLIN_VIEWER \
-        -DUSE_SOCKET_PUBLISHER=$USE_SOCKET_PUBLISHER \
-        -DINSTALL_SOCKET_PUBLISHER=$USE_SOCKET_PUBLISHER \
-        ..
+    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
     make -j
     sudo make install
+
+    # When building with support for PangolinViewer
+    cd ~/lib
+    git clone -b 0.0.1 --recursive https://github.com/stella-cv/pangolin_viewer.git
+    mkdir -p pangolin_viewer/build
+    cd pangolin_viewer/build
+    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+    make -j
+    sudo make install
+
+    # When building with support for SocketViewer
+    cd ~/lib
+    git clone -b 0.0.1 --recursive https://github.com/stella-cv/socket_publisher.git
+    mkdir -p socket_publisher/build
+    cd socket_publisher/build
+    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+    make -j
+    sudo make install
+
     mkdir -p ~/ros2_ws/src
     cd ~/ros2_ws/src
     git clone --recursive -b ros2 --depth 1 https://github.com/stella-cv/stella_vslam_ros.git
     cd ~/ros2_ws
     rosdep install -y -i --from-paths ~/ros2_ws/src --skip-keys=stella_vslam
-    colcon build --symlink-install --cmake-args -DUSE_PANGOLIN_VIEWER=ON -DUSE_SOCKET_PUBLISHER=OFF
+    colcon build --symlink-install
 
 For using USB cam as a image source, download a repository of ``demos`` and pick ``image_tools`` module.
 
