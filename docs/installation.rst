@@ -370,39 +370,43 @@ Otherwise, please download, build and install Protobuf from source.
 Build Instructions
 ==================
 
-When building with support for PangolinViewer, please specify the following cmake options: ``-DUSE_PANGOLIN_VIEWER=ON`` and ``-DUSE_SOCKET_PUBLISHER=OFF``.
-
 .. code-block:: bash
 
-    cd /path/to/stella_vslam
+    mkdir -p ~/lib
+    cd ~/lib
+    git clone --recursive https://github.com/stella-cv/stella_vslam.git
     mkdir build && cd build
+    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+    make -j4
+    sudo make install
+
+    # When building with support for PangolinViewer
+    cd ~/lib
+    git clone -b 0.0.1 --recursive https://github.com/stella-cv/pangolin_viewer.git
+    mkdir -p pangolin_viewer/build
+    cd pangolin_viewer/build
+    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+    make -j
+    sudo make install
+
+    # When building with support for SocketViewer
+    cd ~/lib
+    git clone -b 0.0.1 --recursive https://github.com/stella-cv/socket_publisher.git
+    mkdir -p socket_publisher/build
+    cd socket_publisher/build
+    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+    make -j
+    sudo make install
+
+    cd ~/lib
+    git clone -b 0.0.1 --recursive https://github.com/stella-cv/stella_vslam_examples.git
+    mkdir -p stella_vslam_examples/build
+    cd stella_vslam_examples/build
     cmake \
-        -DUSE_STACK_TRACE_LOGGER=ON \
         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-        -DUSE_PANGOLIN_VIEWER=ON \
-        -DINSTALL_PANGOLIN_VIEWER=ON \
-        -DUSE_SOCKET_PUBLISHER=OFF \
-        -DBUILD_TESTS=OFF \
-        -DBUILD_EXAMPLES=ON \
-        ..
-    make -j4 && sudo make install
-
-When building with support for SocketViewer, please specify the following cmake options: ``-DUSE_PANGOLIN_VIEWER=OFF`` and ``-DUSE_SOCKET_PUBLISHER=ON``.
-
-.. code-block:: bash
-
-    cd /path/to/stella_vslam
-    mkdir build && cd build
-    cmake \
         -DUSE_STACK_TRACE_LOGGER=ON \
-        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-        -DUSE_PANGOLIN_VIEWER=OFF \
-        -DUSE_SOCKET_PUBLISHER=ON \
-        -DINSTALL_SOCKET_PUBLISHER=ON \
-        -DBUILD_TESTS=OFF \
-        -DBUILD_EXAMPLES=ON \
         ..
-    make -j4 && sudo make install
+    make -j
 
 After building, check to see if it was successfully built by executing ``./run_kitti_slam -h``.
 
@@ -411,13 +415,7 @@ After building, check to see if it was successfully built by executing ``./run_k
     $ ./run_kitti_slam -h
     Allowed options:
     -h, --help               produce help message
-    -v, --vocab arg          vocabulary file path
-    -d, --data-dir arg       directory path which contains dataset
-    -c, --config arg         config file path
-    --frame-skip arg (=1)    interval of frame skip
-    --no-sleep               not wait for next frame in real time
-    --auto-term              automatically terminate the viewer
-    --log-level arg (=info)  log level
+    ...
 
 
 .. _section-viewer-setup:

@@ -16,7 +16,7 @@ SLAM with Video Files
 =====================
 
 We provide an example snippet for using video files (e.g. ``.mp4``) for visual SLAM.
-The source code is placed at ``./example/run_video_slam.cc``.
+The source code is placed at ``stella_vslam_examples/src/run_video_slam.cc``.
 
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
@@ -29,7 +29,7 @@ SLAM with Image Sequences
 =========================
 
 We provided an example snippet for using image sequences for visual SLAM.
-The source code is placed at ``./example/run_image_slam.cc``.
+The source code is placed at ``stella_vslam_examples/src/run_image_slam.cc``.
 
 | The camera that captures the video file must be calibrated. Create a config file (``.yaml``) according to the camera parameters.
 | We provided a vocabulary file for FBoW at `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
@@ -48,7 +48,7 @@ KITTI Odometry dataset
 
 `KITTI Odometry dataset <http://www.cvlibs.net/datasets/kitti/>`_ is a benchmarking dataset for monocular and stereo visual odometry and lidar odometry that is captured from car-mounted devices.
 We provided an example source code for running monocular and stereo visual SLAM with this dataset.
-The source code is placed at ``./example/run_kitti_slam.cc``.
+The source code is placed at ``stella_vslam_examples/src/run_kitti_slam.cc``.
 
 Start by downloading the dataset from `here <http://www.cvlibs.net/datasets/kitti/eval_odometry.php>`__.
 Download the grayscale set (``data_odometry_gray.zip``).
@@ -73,12 +73,12 @@ If you built examples with Pangolin Viewer support, a map viewer and frame viewe
     $ ./run_kitti_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/KITTI/Odometry/sequences/00/ \
-        -c ../example/kitti/KITTI_mono_00-02.yaml
+        -c ~/lib/stella_vslam/example/kitti/KITTI_mono_00-02.yaml
     # stereo SLAM with sequence 05
     $ ./run_kitti_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/KITTI/Odometry/sequences/05/ \
-        -c ../example/kitti/KITTI_stereo_04-12.yaml
+        -c ~/lib/stella_vslam/example/kitti/KITTI_stereo_04-12.yaml
 
 .. _subsection-example-euroc:
 
@@ -87,7 +87,7 @@ EuRoC MAV dataset
 
 `EuRoC MAV dataset <https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets>`_ is a benchmarking dataset for monocular and stereo visual odometry that is captured from drone-mounted devices.
 We provide an example source code for running monocular and stereo visual SLAM with this dataset.
-The source code is placed at ``./example/run_euroc_slam.cc``.
+The source code is placed at ``stella_vslam_examples/src/run_euroc_slam.cc``.
 
 Start by downloading the dataset from `here <http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/>`__.
 Download the ``.zip`` file of a dataset you plan on using.
@@ -101,7 +101,7 @@ After downloading and uncompressing it, you will find several directories under 
 
 In addition, download a vocabulary file for FBoW from `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
 
-We provided the two config files for EuRoC, ``./example/euroc/EuRoC_mono.yaml`` for monocular and ``./example/euroc/EuRoC_stereo.yaml`` for stereo.
+We provided the two config files for EuRoC, ``~/lib/stella_vslam/example/euroc/EuRoC_mono.yaml`` for monocular and ``~/lib/stella_vslam/example/euroc/EuRoC_stereo.yaml`` for stereo.
 
 If you have built examples with Pangolin Viewer support, a map viewer and frame viewer will be launched right after executing the following command.
 
@@ -112,12 +112,12 @@ If you have built examples with Pangolin Viewer support, a map viewer and frame 
     $ ./run_euroc_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/EuRoC/MAV/mav0/ \
-        -c ../example/euroc/EuRoC_mono.yaml
+        -c ~/lib/stella_vslam/example/euroc/EuRoC_mono.yaml
     # stereo SLAM with any EuRoC sequence
     $ ./run_euroc_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/EuRoC/MAV/mav0/ \
-        -c ../example/euroc/EuRoC_stereo.yaml
+        -c ~/lib/stella_vslam/example/euroc/EuRoC_stereo.yaml
 
 .. _subsection-example-tum-rgbd:
 
@@ -125,7 +125,7 @@ TUM RGBD dataset
 ^^^^^^^^^^^^^^^^
 
 `TUM RGBD dataset <https://vision.in.tum.de/data/datasets/rgbd-dataset>`_ is a benchmarking dataset fcontaining RGB-D data and ground-truth data with the goal to establish a novel benchmark for the evaluation of visual odometry and visual SLAM systems.
-The source code is placed at ``./example/run_tum_rgbd_slam.cc``.
+The source code is placed at ``stella_vslam_examples/src/run_tum_rgbd_slam.cc``.
 
 Start by downloading the various dataset from `here <https://vision.in.tum.de/data/datasets/rgbd-dataset/download>`__. 
 One of many example datasets can be found from  `here <https://vision.in.tum.de/rgbd/dataset/freiburg3/rgbd_dataset_freiburg3_calibration_rgb_depth.tgz>`__. 
@@ -144,7 +144,7 @@ In addition, download a vocabulary file for FBoW from `here <https://github.com/
 
 We provided the config files for RGBD dataset at, ``./example/tum_rgbd``.
 
-For above specific example we shall use two config files, ``./example/tum_rgbd/TUM_RGBD_mono_3.yaml`` for monocular and ``./example/tum_rgbd/TUM_RGBD_rgbd_3.yaml`` for RGBD.
+For above specific example we shall use two config files, ``~/lib/stella_vslam/example/tum_rgbd/TUM_RGBD_mono_3.yaml`` for monocular and ``~/lib/stella_vslam/example/tum_rgbd/TUM_RGBD_rgbd_3.yaml`` for RGBD.
 
 Tracking and Mapping
 ^^^^^^^^^^^^^^^^^^^^
@@ -156,7 +156,7 @@ Tracking and Mapping
     $ ./run_tum_rgbd_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
-        -c ../example/tum_rgbd/TUM_RGBD_mono_3.yaml \
+        -c ~/lib/stella_vslam/example/tum_rgbd/TUM_RGBD_mono_3.yaml \
         --no-sleep \
         --auto-term \
         --map-db-out fr3_slam_mono.msg
@@ -165,7 +165,7 @@ Tracking and Mapping
     $ ./run_tum_rgbd_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
-        -c ../example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
+        -c ~/lib/stella_vslam/example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
         --no-sleep \
         --auto-term \
         --map-db-out fr3_slam_rgbd.msg
@@ -180,7 +180,7 @@ Localization
     $ ./run_tum_rgbd_slam --disable-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
-        -c ../example/tum_rgbd/TUM_RGBD_mono_3.yaml \
+        -c ~/lib/stella_vslam/example/tum_rgbd/TUM_RGBD_mono_3.yaml \
         --no-sleep \
         --auto-term \
         --map-db-in fr3_slam_mono.msg
@@ -189,7 +189,7 @@ Localization
     $ ./run_tum_rgbd_slam --disable-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
-        -c ../example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
+        -c ~/lib/stella_vslam/example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
         --no-sleep \
         --auto-term \
         --map-db-in fr3_slam_rgbd.msg
@@ -206,7 +206,7 @@ This feature can be used to add keyframes to stabilize localization results.
     $ ./run_tum_rgbd_slam --temporal-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
-        -c ../example/tum_rgbd/TUM_RGBD_mono_3.yaml \
+        -c ~/lib/stella_vslam/example/tum_rgbd/TUM_RGBD_mono_3.yaml \
         --no-sleep \
         --auto-term \
         --map-db-in fr3_slam_mono.msg
@@ -215,7 +215,7 @@ This feature can be used to add keyframes to stabilize localization results.
     $ ./run_tum_rgbd_slam --temporal-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
         -d /path/to/rgbd_dataset_freiburg3_calibration_rgb_depth/ \
-        -c ../example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
+        -c ~/lib/stella_vslam/example/tum_rgbd/TUM_RGBD_rgbd_3.yaml \
         --no-sleep \
         --auto-term \
         --map-db-in fr3_slam_rgbd.msg
@@ -234,7 +234,7 @@ Tracking and Mapping
 ^^^^^^^^^^^^^^^^^^^^
 
 We provided an example snippet for using a UVC camera, which is often called a webcam, for visual SLAM.
-The source code is placed at ``./example/run_camera_slam.cc``.
+The source code is placed at ``stella_vslam_examples/src/run_camera_slam.cc``.
 
 | Please specify the camera number you want to use by ``-n`` option.
 | The camera must be calibrated. Create a config file (``.yaml``) according to the camera parameters.

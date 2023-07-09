@@ -18,9 +18,9 @@ The later parts of this chapter explains what each of the commands do in more de
 
     # at the build directory of stella_vslam ...
     $ pwd
-    /path/to/stella_vslam/build/
+    ~/lib/stella_vslam_examples/build/
     $ ls
-    run_video_slam   lib/   ...
+    run_video_slam   ...
 
     # download an ORB vocabulary from GitHub
     curl -sL "https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow" -o orb_vocab.fbow
@@ -40,14 +40,14 @@ The later parts of this chapter explains what each of the commands do in more de
     unzip aist_living_lab_2.zip
 
     # run tracking and mapping
-    ./run_video_slam -v ./orb_vocab.fbow -m ./aist_living_lab_1/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-out map.msg
+    ./run_video_slam -v ./orb_vocab.fbow -m ./aist_living_lab_1/video.mp4 -c ~/lib/stella_vslam/example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-out map.msg
     # click the [Terminate] button to close the viewer
     # you can find map.msg in the current directory
 
     # run localization
-    ./run_video_slam --disable-mapping -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-in map.msg
+    ./run_video_slam --disable-mapping -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ~/lib/stella_vslam/example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-in map.msg
     # run localization with temporal mapping based odometry. loaded keyframes are prioritized for localization/localBA.
-    ./run_video_slam --temporal-mapping -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ../example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-in map.msg
+    ./run_video_slam --temporal-mapping -v ./orb_vocab.fbow -m ./aist_living_lab_2/video.mp4 -c ~/lib/stella_vslam/example/aist/equirectangular.yaml --frame-skip 3 --no-sleep --map-db-in map.msg
 
 
 Sample Datasets
@@ -266,7 +266,7 @@ The paths should be changed accordingly.
 
     $ ./run_video_slam \
         -v /path/to/orb_vocab/orb_vocab.fbow \
-        -c /path/to/stella_vslam/example/aist/equirectangular.yaml \
+        -c ~/lib/stella_vslam/example/aist/equirectangular.yaml \
         -m /path/to/aist_living_lab_1/video.mp4 \
         --frame-skip 3 \
         --map-db-out aist_living_lab_1_map.msg
@@ -384,7 +384,7 @@ The paths should be changed accordingly.
 
     $ ./run_video_slam --disable-mapping \
         -v /path/to/orb_vocab/orb_vocab.fbow \
-        -c /path/to/stella_vslam/example/aist/equirectangular.yaml \
+        -c ~/lib/stella_vslam/example/aist/equirectangular.yaml \
         -m /path/to/aist_living_lab_2/video.mp4 \
         --frame-skip 3 \
         --map-db-in aist_living_lab_1_map.msg

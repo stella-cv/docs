@@ -56,13 +56,6 @@ In order to enable X11 forwarding, supplemental options (``-e DISPLAY=$DISPLAY``
 
 
 After launching the container, the shell interface will be launched in the docker container.
-
-.. code-block:: bash
-
-    root@ddad048b5fff:/stella_vslam/build# ls
-    lib                     run_image_slam          run_video_slam
-    run_euroc_slam          run_kitti_slam          run_tum_slam
-
 See :ref:`Tutorial <chapter-simple-tutorial>` to run SLAM examples in the container.
 
 .. NOTE ::
@@ -135,7 +128,7 @@ The shell interface will be launched in the docker container.
 .. code-block:: bash
 
     $ docker run --rm -it --name stella_vslam-socket --net=host stella_vslam-socket
-    root@hostname:/stella_vslam/build#
+    root@hostname:/stella_vslam_examples/build#
 
 See :ref:`Tutorial <chapter-simple-tutorial>` to run SLAM examples in the container.
 
@@ -182,7 +175,7 @@ The shell interface will be launched in the docker container.
 .. code-block:: bash
 
     $ docker run --rm -it --name stella_vslam-socket stella_vslam-socket
-    root@hostname:/stella_vslam/build#
+    root@hostname:/stella_vslam_examples/build#
 
 | See :ref:`Tutorial <chapter-simple-tutorial>` to run SLAM examples in the container.
 | Please don't forget to append ``SocketPublisher.server_uri`` entry to the ``config.yaml`` if you use the downloaded datasets in the tutorial.
