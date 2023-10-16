@@ -375,6 +375,7 @@ Build Instructions
     mkdir -p ~/lib
     cd ~/lib
     git clone --recursive https://github.com/stella-cv/stella_vslam.git
+    cd stella_vslam
     mkdir build && cd build
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
     make -j4
