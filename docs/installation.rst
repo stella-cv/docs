@@ -372,6 +372,7 @@ Build Instructions
 
 .. code-block:: bash
 
+    # Install stella_vslam core library
     mkdir -p ~/lib
     cd ~/lib
     git clone --recursive https://github.com/stella-cv/stella_vslam.git
@@ -399,6 +400,7 @@ Build Instructions
     make -j
     sudo make install
 
+    # Install stella_vslam executables
     cd ~/lib
     git clone -b 0.0.1 --recursive https://github.com/stella-cv/stella_vslam_examples.git
     mkdir -p stella_vslam_examples/build
