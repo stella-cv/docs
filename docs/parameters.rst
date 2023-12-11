@@ -233,6 +233,12 @@ Relocalizer
       - If true, points used by the PnP solver are searched not only from candidate keyframes, but also from neighbor keyframes
     * - top_n_covisibilities_to_search
       - number of neighbor keyframes
+    * - num_common_words_thr_ratio
+      - 
+    * - max_num_ransac_iter
+      - 
+    * - max_num_local_keyfrms
+      - 
 
 .. _section-parameters-keyframe-inserter:
 
@@ -250,6 +256,8 @@ KeyframeInserter
     * - min_interval
       - 
     * - max_distance
+      - 
+    * - min_distance
       - 
     * - enough_lms_thr
       - 
