@@ -158,6 +158,8 @@ Mapping
       - If true, remove keyframes past num_temporal_keyframes
     * - num_temporal_keyframes
       - Number of temporal keyframes
+    * - residual_deg_thr
+      - It is used to check epipolar constraints. The default inlier threshold value is 0.2 degree (e.g. for the camera with width of 900-pixel and 90-degree FOV, 0.2 degree is equivalent to 2 pixel in the horizontal direction)
 
 .. _section-parameters-stereo-rectifier:
 
@@ -351,6 +353,34 @@ LoopDetector
       - Minimum number of matches to allow for loop candidates after optimization by transform_optimizer
     * - backend
       - g2o or gtsam
+
+.. _section-parameters-global-optimizer:
+
+GlobalOptimizer
+===============
+
+.. list-table::
+    :header-rows: 1
+    :widths: 1, 3
+
+    * - Name
+      - Description
+    * - thr_neighbor_keyframes
+      - Keyframes exceeding the threshold are treated as neighbors
+
+.. _section-parameters-graph-optimizer:
+
+GraphOptimizer
+==============
+
+.. list-table::
+    :header-rows: 1
+    :widths: 1, 3
+
+    * - Name
+      - Description
+    * - min_num_shared_lms
+      - Add constraints between keyframes that exceed thresholds
 
 .. _section-parameters-marker-model:
 
