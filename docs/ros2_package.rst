@@ -14,11 +14,11 @@ Installation
 Prerequisites
 ^^^^^^^^^^^^^
 
-Tested for **Ubuntu 20.04**.
+Tested for **Ubuntu 22.04**.
 
 Please install the following dependencies.
 
-* ROS2 : ``foxy`` or later. Please follow `Installation of ROS2 <https://index.ros.org/doc/ros2/Installation/>`_.
+* ROS2 : ``humble`` or later. Please follow `Installation of ROS2 <https://docs.ros.org/en/humble/Installation.html>`_.
 
 * `image_tools <https://index.ros.org/p/image_tools/#dashing>`_ : An optional requirement to use USB cameras.
 
