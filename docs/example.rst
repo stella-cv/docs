@@ -64,8 +64,6 @@ In addition, download a vocabulary file for FBoW from `here <https://github.com/
 
 A configuration file for each sequence is contained under ``./example/kitti/``.
 
-If you built examples with Pangolin Viewer support, a map viewer and frame viewer will be launced right after executing the following command.
-
 .. code-block:: bash
 
     # at the build directory of stella_vslam
@@ -102,8 +100,6 @@ After downloading and uncompressing it, you will find several directories under 
 In addition, download a vocabulary file for FBoW from `here <https://github.com/stella-cv/FBoW_orb_vocab/raw/main/orb_vocab.fbow>`__.
 
 We provided the two config files for EuRoC, ``~/lib/stella_vslam/example/euroc/EuRoC_mono.yaml`` for monocular and ``~/lib/stella_vslam/example/euroc/EuRoC_stereo.yaml`` for stereo.
-
-If you have built examples with Pangolin Viewer support, a map viewer and frame viewer will be launched right after executing the following command.
 
 .. code-block:: bash
 

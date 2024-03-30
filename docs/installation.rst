@@ -48,14 +48,27 @@ Requirements for stella_vslam
 
 .. NOTE ::
 
-    OpenCV with GUI support is necessary for using the built-in viewer (Pangolin Viewer).
+    OpenCV with GUI support is necessary for using the built-in viewer (Iridescence/Pangolin Viewer).
     OpenCV with video support is necessary if you plan on using video files (e.g. ``.mp4``) as inputs.
     If your CPU has many cores, it is recommended to enable TBB.
+
+.. _subsection-dependencies-iridescenceviewer:
+
+Requirements for IridescenceViewer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| We provided an OpenGL-based simple viewer.
+| This viewer is implemented with `Iridescence <https://github.com/koide3/iridescence>`_. Thus, we call it **IridescenceViewer**.
+| Please install the following dependencies if you plan on using IridescenceViewer.
+
+* `Iridescence <https://github.com/koide3/iridescence>`_ : Please use the latest release. Tested on commit ID `085322e <https://github.com/koide3/iridescence/tree/085322e0c949f75b67d24d361784e85ad7f197ab>`_.
+
+.. _subsection-dependencies-pangolinviewer:
 
 Requirements for PangolinViewer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| We provided an OpenGL-based simple viewer.
+| We provided another OpenGL-based simple viewer. It is an older viewer with fewer features than IridescenceViewer.
 | This viewer is implemented with `Pangolin <https://github.com/stevenlovegrove/Pangolin>`_. Thus, we call it **PangolinViewer**.
 | Please install the following dependencies if you plan on using PangolinViewer.
 
@@ -106,7 +119,7 @@ Prerequisites for Unix
 Installing for Linux
 ^^^^^^^^^^^^^^^^^^^^
 
-Tested for **Ubuntu 20.04**.
+Tested for **Ubuntu 22.04**.
 
 Install the dependencies via ``apt``.
 
@@ -126,6 +139,10 @@ Install the dependencies via ``apt``.
     apt install -y binutils-dev
     # other dependencies
     apt install -y libyaml-cpp-dev libgflags-dev sqlite3 libsqlite3-dev
+
+    # (if you plan on using IridescenceViewer)
+    # Iridescence dependencies
+    apt install -y libglm-dev libglfw3-dev libpng-dev libjpeg-dev libeigen3-dev libboost-filesystem-dev libboost-program-options-dev
 
     # (if you plan on using PangolinViewer)
     # Pangolin dependencies
@@ -320,6 +337,22 @@ Download, build and install backward-cpp.
         ..
     make -j4 && sudo make install
 
+| (**if you plan on using IridescenceViewer**)
+| Download, build and install Iridescence from source.
+
+.. code-block:: bash
+
+    cd /tmp
+    git clone https://github.com/koide3/iridescence.git
+    cd iridescence
+    git checkout 085322e0c949f75b67d24d361784e85ad7f197ab
+    git submodule update --init --recursive
+    mkdir build && cd build
+    cmake \
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+        ..
+    make -j4 && sudo make install
+
 | (**if you plan on using SocketViewer**)
 | Download, build and install socket.io-client-cpp from source.
 
@@ -382,9 +415,18 @@ Build Instructions
     make -j4
     sudo make install
 
+    # When building with support for IridescenceViewer
+    cd ~/lib
+    git clone --recursive https://github.com/stella-cv/iridescence_viewer.git
+    mkdir -p iridescence_viewer/build
+    cd iridescence_viewer/build
+    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+    make -j
+    sudo make install
+
     # When building with support for PangolinViewer
     cd ~/lib
-    git clone -b 0.0.1 --recursive https://github.com/stella-cv/pangolin_viewer.git
+    git clone --recursive https://github.com/stella-cv/pangolin_viewer.git
     mkdir -p pangolin_viewer/build
     cd pangolin_viewer/build
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
@@ -393,7 +435,7 @@ Build Instructions
 
     # When building with support for SocketViewer
     cd ~/lib
-    git clone -b 0.0.1 --recursive https://github.com/stella-cv/socket_publisher.git
+    git clone --recursive https://github.com/stella-cv/socket_publisher.git
     mkdir -p socket_publisher/build
     cd socket_publisher/build
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
@@ -402,7 +444,7 @@ Build Instructions
 
     # Install stella_vslam executables
     cd ~/lib
-    git clone -b 0.0.1 --recursive https://github.com/stella-cv/stella_vslam_examples.git
+    git clone --recursive https://github.com/stella-cv/stella_vslam_examples.git
     mkdir -p stella_vslam_examples/build
     cd stella_vslam_examples/build
     cmake \

@@ -5,6 +5,58 @@ Running on Docker
 =================
 
 
+.. _section-instructions-for-iridescenceviewer:
+
+Instructions for IridescenceViewer
+==================================
+
+``Dockerfile.iridescense`` can be used for easy installation.
+This chapter provides instructions on building and running examples with IridescenceViewer support using Docker.
+
+The instructions are tested on Ubuntu 20.04.
+
+Building Docker Image
+^^^^^^^^^^^^^^^^^^^^^
+
+Execute the following commands:
+
+.. code-block:: bash
+
+    git clone --recursive https://github.com/stella-cv/stella_vslam.git
+    cd stella_vslam
+    docker build -t stella_vslam-iridescense -f Dockerfile.iridescense .
+
+
+You can accelerate the build of the docker image with ``--build-arg NUM_THREADS=<number of parallel builds>`` option. For example:
+
+.. code-block:: bash
+
+    # building the docker image with four threads
+    docker build -t stella_vslam-iridescense -f Dockerfile.iridescense . --build-arg NUM_THREADS=`expr $(nproc) - 1`
+
+Starting Docker Container
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to enable X11 forwarding, supplemental options (``-e DISPLAY=$DISPLAY`` and ``-v /tmp/.X11-unix/:/tmp/.X11-unix:ro``) are needed for ``docker run``.
+
+.. code-block:: bash
+
+    # before launching the container, allow display access from local users
+    xhost +local:
+    # launch the container
+    docker run -it --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix:ro stella_vslam-iridescense
+
+.. NOTE ::
+
+    Additional option ``--gpus all`` is needed if you use NVIDIA graphics card(s).
+
+
+After launching the container, the shell interface will be launched in the docker container.
+See :ref:`Tutorial <chapter-simple-tutorial>` to run SLAM examples in the container.
+
+If you need to access to any files and directories on a host machine from the container, :ref:`bind directories <section-directory-binding>` between the host and the container.
+
+
 .. _section-instructions-for-pangolinviewer:
 
 Instructions for PangolinViewer

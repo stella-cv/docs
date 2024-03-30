@@ -23,7 +23,24 @@ Please install the following dependencies.
 Build Instructions
 ^^^^^^^^^^^^^^^^^^
 
-(If using Pangolin)
+(If using IridescenceViewer)
+
+.. code-block:: bash
+
+    sudo apt install -y libglm-dev libglfw3-dev libpng-dev libjpeg-dev libeigen3-dev libboost-filesystem-dev libboost-program-options-dev
+    git clone https://github.com/koide3/iridescence.git
+    cd iridescence
+    git checkout 085322e0c949f75b67d24d361784e85ad7f197ab
+    git submodule update --init --recursive
+    mkdir -p build
+    cd build
+    cmake \
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+        ..
+    make -j$(($(nproc) / 2))
+    sudo make install
+
+(If using PangolinViewer)
 
 .. code-block:: bash
 
@@ -108,9 +125,18 @@ Build Instructions
     make -j
     sudo make install
 
+    # When building with support for IridescenceViewer
+    cd ~/lib
+    git clone --recursive https://github.com/stella-cv/iridescence_viewer.git
+    mkdir -p iridescence_viewer/build
+    cd iridescence_viewer/build
+    cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+    make -j
+    sudo make install
+
     # When building with support for PangolinViewer
     cd ~/lib
-    git clone -b 0.0.1 --recursive https://github.com/stella-cv/pangolin_viewer.git
+    git clone --recursive https://github.com/stella-cv/pangolin_viewer.git
     mkdir -p pangolin_viewer/build
     cd pangolin_viewer/build
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
@@ -119,7 +145,7 @@ Build Instructions
 
     # When building with support for SocketViewer
     cd ~/lib
-    git clone -b 0.0.1 --recursive https://github.com/stella-cv/socket_publisher.git
+    git clone --recursive https://github.com/stella-cv/socket_publisher.git
     mkdir -p socket_publisher/build
     cd socket_publisher/build
     cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
