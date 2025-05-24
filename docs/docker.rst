@@ -24,7 +24,7 @@ Execute the following commands:
 
     git clone --recursive https://github.com/stella-cv/stella_vslam.git
     cd stella_vslam
-    docker build -t stella_vslam-iridescense -f Dockerfile.iridescense .
+    docker build -t stella_vslam-iridescence -f Dockerfile.iridescence .
 
 
 You can accelerate the build of the docker image with ``--build-arg NUM_THREADS=<number of parallel builds>`` option. For example:
