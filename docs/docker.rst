@@ -10,7 +10,7 @@ Running on Docker
 Instructions for IridescenceViewer
 ==================================
 
-``Dockerfile.iridescense`` can be used for easy installation.
+``Dockerfile.iridescence`` can be used for easy installation.
 This chapter provides instructions on building and running examples with IridescenceViewer support using Docker.
 
 The instructions are tested on Ubuntu 20.04.
@@ -32,7 +32,7 @@ You can accelerate the build of the docker image with ``--build-arg NUM_THREADS=
 .. code-block:: bash
 
     # building the docker image with four threads
-    docker build -t stella_vslam-iridescense -f Dockerfile.iridescense . --build-arg NUM_THREADS=`expr $(nproc) - 1`
+    docker build -t stella_vslam-iridescence -f Dockerfile.iridescence . --build-arg NUM_THREADS=`expr $(nproc) - 1`
 
 Starting Docker Container
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -44,7 +44,7 @@ In order to enable X11 forwarding, supplemental options (``-e DISPLAY=$DISPLAY``
     # before launching the container, allow display access from local users
     xhost +local:
     # launch the container
-    docker run -it --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix:ro stella_vslam-iridescense
+    docker run -it --rm --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix:ro stella_vslam-iridescence
 
 .. NOTE ::
 
